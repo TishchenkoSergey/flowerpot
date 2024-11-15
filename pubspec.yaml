@@ -18,6 +18,9 @@ dependencies:
   go_router: ^14.3.0
   injectable: ^2.4.0
   get_it: ^8.0.2
+  flutter_gen: any
+  json_annotation: ^4.8.0
+  flutter_svg: ^2.0.11
 
   domain:
     path: ./packages/domain
@@ -33,6 +36,8 @@ dev_dependencies:
   flutter_gen_runner: ^5.4.0
   flutter_native_splash: ^2.3.10
   injectable_generator: ^2.4.0
+  json_serializable: ^6.6.0
+  flutter_launcher_icons: "^0.14.1"
 
 dependency_overrides:
   meta: ^1.12.0
@@ -42,7 +47,22 @@ flutter:
   uses-material-design: true
   generate: true
 
+  assets:
+    - assets/illustrations/
+    - assets/logos/
+    - assets/icons/
+
+flutter_launcher_icons:
+  android: true
+  image_path_android: "assets/logos/primary.png"
+  min_sdk_android: 23
+  adaptive_icon_background: "#FFFAFA"
+  adaptive_icon_foreground: "assets/icons/img.png"
+  ios: true
+  remove_alpha_ios: true
+  image_path_ios: "assets/icons/img.svg"
+
 flutter_gen:
-  output: lib/app/
+  output: lib/assets/
   integrations:
     flutter_svg: true

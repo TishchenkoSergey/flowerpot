@@ -15,11 +15,14 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/img.png
+  AssetGenImage get imgPng => const AssetGenImage('assets/icons/img.png');
+
   /// File path: assets/icons/img.svg
-  SvgGenImage get img => const SvgGenImage('assets/icons/img.svg');
+  SvgGenImage get imgSvg => const SvgGenImage('assets/icons/img.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [img];
+  List<dynamic> get values => [imgPng, imgSvg];
 }
 
 class $AssetsIllustrationsGen {
@@ -29,8 +32,23 @@ class $AssetsIllustrationsGen {
   AssetGenImage get background =>
       const AssetGenImage('assets/illustrations/background.jpg');
 
+  /// File path: assets/illustrations/dry.png
+  AssetGenImage get dry => const AssetGenImage('assets/illustrations/dry.png');
+
+  /// File path: assets/illustrations/flabby.png
+  AssetGenImage get flabby =>
+      const AssetGenImage('assets/illustrations/flabby.png');
+
+  /// File path: assets/illustrations/normal.png
+  AssetGenImage get normal =>
+      const AssetGenImage('assets/illustrations/normal.png');
+
+  /// File path: assets/illustrations/rotten.png
+  AssetGenImage get rotten =>
+      const AssetGenImage('assets/illustrations/rotten.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [background];
+  List<AssetGenImage> get values => [background, dry, flabby, normal, rotten];
 }
 
 class $AssetsLogosGen {

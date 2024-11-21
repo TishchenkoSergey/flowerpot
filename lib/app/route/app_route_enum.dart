@@ -1,6 +1,7 @@
 enum Routes {
   mainScreen('main-screen'),
-  gamePlay('game-play');
+  gamePlay('game-play'),
+  interactions('interactions');
 
   const Routes(this.name);
 

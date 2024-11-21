@@ -13,6 +13,7 @@ class AppRoute {
       routes: [
         _buildMainPage(),
         _buildGamePlayPage(),
+        _buildInteractionPage(),
       ],
       initialLocation: '/${Routes.mainScreen.name}',
     );
@@ -37,6 +38,16 @@ class AppRoute {
           create: (context) => GamePlayCubit(),
           child: const GamePlayScreen(),
         ),
+      ),
+    );
+  }
+
+  GoRoute _buildInteractionPage() {
+    return GoRoute(
+      name: Routes.interactions.name,
+      path: '/${Routes.interactions.name}',
+      pageBuilder: (context, state) => CupertinoPage(
+        child: const InteractionsScreen(),
       ),
     );
   }

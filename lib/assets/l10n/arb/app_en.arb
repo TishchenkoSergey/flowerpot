@@ -3,5 +3,19 @@
     "locale_name": "English",
     "projectTitle": "Flowerpot",
     "feature_main_text_description": "Start caring for your plant to help it live longer",
-    "feature_welcome_button_new_game": "New game"
+    "feature_welcome_button_new_game": "New game",
+    "feature_interactions_app_bar": "Interactions",
+    "feature_interactions_title_water": "Water",
+    "feature_interactions_card_water_title2": "Glass",
+    "feature_interactions_card_water_title3": "Jug",
+    "feature_interactions_card_water_title4": "Bucket",
+    "feature_interactions_title_light": "Light",
+    "feature_interactions_card_light_title2": "Daylight",
+    "feature_interactions_card_light_title3": "Fluorescent",
+    "feature_interactions_card_light_title4": "Ultraviolet",
+    "feature_interactions_title_fertilizer": "Fertilizer",
+    "feature_interactions_card_fertilizer_title2": "Compost",
+    "feature_interactions_card_fertilizer_title3": "Nitrogenous",
+    "feature_interactions_card_fertilizer_title4": "Phosphorous",
+    "feature_interactions_card_comment": "+{point} points"
 }

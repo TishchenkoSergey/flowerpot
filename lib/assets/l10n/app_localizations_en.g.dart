@@ -17,4 +17,48 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get feature_welcome_button_new_game => 'New game';
+
+  @override
+  String get feature_interactions_app_bar => 'Interactions';
+
+  @override
+  String get feature_interactions_title_water => 'Water';
+
+  @override
+  String get feature_interactions_card_water_title2 => 'Glass';
+
+  @override
+  String get feature_interactions_card_water_title3 => 'Jug';
+
+  @override
+  String get feature_interactions_card_water_title4 => 'Bucket';
+
+  @override
+  String get feature_interactions_title_light => 'Light';
+
+  @override
+  String get feature_interactions_card_light_title2 => 'Daylight';
+
+  @override
+  String get feature_interactions_card_light_title3 => 'Fluorescent';
+
+  @override
+  String get feature_interactions_card_light_title4 => 'Ultraviolet';
+
+  @override
+  String get feature_interactions_title_fertilizer => 'Fertilizer';
+
+  @override
+  String get feature_interactions_card_fertilizer_title2 => 'Compost';
+
+  @override
+  String get feature_interactions_card_fertilizer_title3 => 'Nitrogenous';
+
+  @override
+  String get feature_interactions_card_fertilizer_title4 => 'Phosphorous';
+
+  @override
+  String feature_interactions_card_comment(Object point) {
+    return '+$point points';
+  }
 }

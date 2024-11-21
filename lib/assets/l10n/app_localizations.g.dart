@@ -116,6 +116,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'New game'**
   String get feature_welcome_button_new_game;
+
+  /// No description provided for @feature_interactions_app_bar.
+  ///
+  /// In en, this message translates to:
+  /// **'Interactions'**
+  String get feature_interactions_app_bar;
+
+  /// No description provided for @feature_interactions_title_water.
+  ///
+  /// In en, this message translates to:
+  /// **'Water'**
+  String get feature_interactions_title_water;
+
+  /// No description provided for @feature_interactions_card_water_title2.
+  ///
+  /// In en, this message translates to:
+  /// **'Glass'**
+  String get feature_interactions_card_water_title2;
+
+  /// No description provided for @feature_interactions_card_water_title3.
+  ///
+  /// In en, this message translates to:
+  /// **'Jug'**
+  String get feature_interactions_card_water_title3;
+
+  /// No description provided for @feature_interactions_card_water_title4.
+  ///
+  /// In en, this message translates to:
+  /// **'Bucket'**
+  String get feature_interactions_card_water_title4;
+
+  /// No description provided for @feature_interactions_title_light.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get feature_interactions_title_light;
+
+  /// No description provided for @feature_interactions_card_light_title2.
+  ///
+  /// In en, this message translates to:
+  /// **'Daylight'**
+  String get feature_interactions_card_light_title2;
+
+  /// No description provided for @feature_interactions_card_light_title3.
+  ///
+  /// In en, this message translates to:
+  /// **'Fluorescent'**
+  String get feature_interactions_card_light_title3;
+
+  /// No description provided for @feature_interactions_card_light_title4.
+  ///
+  /// In en, this message translates to:
+  /// **'Ultraviolet'**
+  String get feature_interactions_card_light_title4;
+
+  /// No description provided for @feature_interactions_title_fertilizer.
+  ///
+  /// In en, this message translates to:
+  /// **'Fertilizer'**
+  String get feature_interactions_title_fertilizer;
+
+  /// No description provided for @feature_interactions_card_fertilizer_title2.
+  ///
+  /// In en, this message translates to:
+  /// **'Compost'**
+  String get feature_interactions_card_fertilizer_title2;
+
+  /// No description provided for @feature_interactions_card_fertilizer_title3.
+  ///
+  /// In en, this message translates to:
+  /// **'Nitrogenous'**
+  String get feature_interactions_card_fertilizer_title3;
+
+  /// No description provided for @feature_interactions_card_fertilizer_title4.
+  ///
+  /// In en, this message translates to:
+  /// **'Phosphorous'**
+  String get feature_interactions_card_fertilizer_title4;
+
+  /// No description provided for @feature_interactions_card_comment.
+  ///
+  /// In en, this message translates to:
+  /// **'+{point} points'**
+  String feature_interactions_card_comment(Object point);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

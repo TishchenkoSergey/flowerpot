@@ -12,6 +12,13 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart' as _svg;
 import 'package:vector_graphics/vector_graphics.dart' as _vg;
 
+class $LibGen {
+  const $LibGen();
+
+  /// Directory path: lib/assets
+  $LibAssetsGen get assets => const $LibAssetsGen();
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
@@ -116,6 +123,30 @@ class $AssetsLogosGen {
   List<AssetGenImage> get values => [primary];
 }
 
+class $LibAssetsGen {
+  const $LibAssetsGen();
+
+  /// Directory path: lib/assets/l10n
+  $LibAssetsL10nGen get l10n => const $LibAssetsL10nGen();
+}
+
+class $LibAssetsL10nGen {
+  const $LibAssetsL10nGen();
+
+  /// File path: lib/assets/l10n/app_localizations.g.dart
+  String get appLocalizationsG => 'lib/assets/l10n/app_localizations.g.dart';
+
+  /// File path: lib/assets/l10n/app_localizations_en.g.dart
+  String get appLocalizationsEnG =>
+      'lib/assets/l10n/app_localizations_en.g.dart';
+
+  /// File path: lib/assets/l10n/l10n.dart
+  String get l10n => 'lib/assets/l10n/l10n.dart';
+
+  /// List of all assets
+  List<String> get values => [appLocalizationsG, appLocalizationsEnG, l10n];
+}
+
 class Assets {
   Assets._();
 
@@ -123,6 +154,7 @@ class Assets {
   static const $AssetsIllustrationsGen illustrations =
       $AssetsIllustrationsGen();
   static const $AssetsLogosGen logos = $AssetsLogosGen();
+  static const $LibGen lib = $LibGen();
 }
 
 class AssetGenImage {

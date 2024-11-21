@@ -21,6 +21,7 @@ dependencies:
   flutter_gen: any
   json_annotation: ^4.8.0
   flutter_svg: ^2.0.11
+  l10n_flutter: ^1.0.7
 
   domain:
     path: ./packages/domain
@@ -52,6 +53,7 @@ flutter:
     - assets/illustrations/
     - assets/logos/
     - assets/icons/
+    - lib/assets/l10n/
 
 flutter_launcher_icons:
   android: true

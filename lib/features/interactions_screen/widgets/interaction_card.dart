@@ -26,6 +26,7 @@ class InteractionCard extends StatelessWidget {
         child: Container(
           constraints: const BoxConstraints(
             maxHeight: 160,
+            minWidth: 120,
           ),
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flowerpot/assets/assets.dart';
 import 'package:flowerpot/app/route/route.dart';
+import 'package:flowerpot/assets/l10n/l10n.dart';
 
 import '../widgets/widgets.dart';
 
@@ -26,7 +27,7 @@ class MainScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Flowerpot',
+                context.l10n.projectTitle,
                 style: textTheme.labelLarge?.copyWith(
                   fontSize: 36,
                 ),
@@ -35,7 +36,7 @@ class MainScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 32),
                 child: Text(
-                  'Start caring for your plant to help it live longer',
+                  context.l10n.feature_main_text_description,
                   textAlign: TextAlign.center,
                   style: textTheme.labelLarge?.copyWith(
                     fontSize: 24,
@@ -44,7 +45,7 @@ class MainScreen extends StatelessWidget {
               ),
               SizedBox(height: 100),
               CustomButton(
-                title: 'New Game',
+                title: context.l10n.feature_welcome_button_new_game,
                 onPressed: () => context.goNamed(Routes.gamePlay.name),
               ),
             ],

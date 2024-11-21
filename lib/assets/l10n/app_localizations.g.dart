@@ -90,7 +90,7 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
-    Locale('en'),
+    Locale('en')
   ];
 
   /// No description provided for @locale_name.
@@ -104,6 +104,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Flowerpot'**
   String get projectTitle;
+
+  /// No description provided for @feature_main_text_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Start caring for your plant to help it live longer'**
+  String get feature_main_text_description;
+
+  /// No description provided for @feature_welcome_button_new_game.
+  ///
+  /// In en, this message translates to:
+  /// **'New game'**
+  String get feature_welcome_button_new_game;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

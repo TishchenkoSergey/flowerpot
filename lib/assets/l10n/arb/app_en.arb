@@ -1,5 +1,7 @@
 {
     "@@locale": "en",
     "locale_name": "English",
-    "projectTitle": "Flowerpot"
+    "projectTitle": "Flowerpot",
+    "feature_main_text_description": "Start caring for your plant to help it live longer",
+    "feature_welcome_button_new_game": "New game"
 }

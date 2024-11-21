@@ -15,11 +15,69 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/fertilizer.png
+  AssetGenImage get fertilizer =>
+      const AssetGenImage('assets/icons/fertilizer.png');
+
+  /// File path: assets/icons/fertilizer2.png
+  AssetGenImage get fertilizer2 =>
+      const AssetGenImage('assets/icons/fertilizer2.png');
+
+  /// File path: assets/icons/fertilizer3.png
+  AssetGenImage get fertilizer3 =>
+      const AssetGenImage('assets/icons/fertilizer3.png');
+
+  /// File path: assets/icons/fertilizer4.png
+  AssetGenImage get fertilizer4 =>
+      const AssetGenImage('assets/icons/fertilizer4.png');
+
+  /// File path: assets/icons/img.png
+  AssetGenImage get imgPng => const AssetGenImage('assets/icons/img.png');
+
   /// File path: assets/icons/img.svg
-  SvgGenImage get img => const SvgGenImage('assets/icons/img.svg');
+  SvgGenImage get imgSvg => const SvgGenImage('assets/icons/img.svg');
+
+  /// File path: assets/icons/light.png
+  AssetGenImage get light => const AssetGenImage('assets/icons/light.png');
+
+  /// File path: assets/icons/light2.png
+  AssetGenImage get light2 => const AssetGenImage('assets/icons/light2.png');
+
+  /// File path: assets/icons/light3.png
+  AssetGenImage get light3 => const AssetGenImage('assets/icons/light3.png');
+
+  /// File path: assets/icons/light4.png
+  AssetGenImage get light4 => const AssetGenImage('assets/icons/light4.png');
+
+  /// File path: assets/icons/water.png
+  AssetGenImage get water => const AssetGenImage('assets/icons/water.png');
+
+  /// File path: assets/icons/water2.png
+  AssetGenImage get water2 => const AssetGenImage('assets/icons/water2.png');
+
+  /// File path: assets/icons/water3.png
+  AssetGenImage get water3 => const AssetGenImage('assets/icons/water3.png');
+
+  /// File path: assets/icons/water4.png
+  AssetGenImage get water4 => const AssetGenImage('assets/icons/water4.png');
 
   /// List of all assets
-  List<SvgGenImage> get values => [img];
+  List<dynamic> get values => [
+        fertilizer,
+        fertilizer2,
+        fertilizer3,
+        fertilizer4,
+        imgPng,
+        imgSvg,
+        light,
+        light2,
+        light3,
+        light4,
+        water,
+        water2,
+        water3,
+        water4
+      ];
 }
 
 class $AssetsIllustrationsGen {
@@ -29,8 +87,23 @@ class $AssetsIllustrationsGen {
   AssetGenImage get background =>
       const AssetGenImage('assets/illustrations/background.jpg');
 
+  /// File path: assets/illustrations/dry.png
+  AssetGenImage get dry => const AssetGenImage('assets/illustrations/dry.png');
+
+  /// File path: assets/illustrations/flabby.png
+  AssetGenImage get flabby =>
+      const AssetGenImage('assets/illustrations/flabby.png');
+
+  /// File path: assets/illustrations/normal.png
+  AssetGenImage get normal =>
+      const AssetGenImage('assets/illustrations/normal.png');
+
+  /// File path: assets/illustrations/rotten.png
+  AssetGenImage get rotten =>
+      const AssetGenImage('assets/illustrations/rotten.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [background];
+  List<AssetGenImage> get values => [background, dry, flabby, normal, rotten];
 }
 
 class $AssetsLogosGen {

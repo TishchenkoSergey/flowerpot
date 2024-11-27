@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 
+import 'color_scale_pointer.dart';
+
 class GradientStatus extends StatelessWidget {
   const GradientStatus({
     required this.image,
-    this.iconSize = 48.0,
-  }) : super();
+    required this.value,
+    this.iconSize = 40.0,
+  }) : assert(value >= 0 && value <= 100, 'Value must be between 0 and 100.');
 
   final ImageProvider image;
   final double iconSize;
+  final double value;
 
   @override
   Widget build(BuildContext context) {
@@ -26,19 +30,28 @@ class GradientStatus extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Container(
-              height: 10.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                gradient: LinearGradient(
-                  colors: [
-                    Colors.red,
-                    Colors.yellow,
-                    Colors.green,
-                    Colors.yellow,
-                    Colors.red,
+            child: SizedBox(
+              height: 8,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Stack(
+                  children: [
+                    CustomPaint(
+                      size: Size(double.infinity, double.infinity),
+                      painter: ColorScalePainter(),
+                    ),
+                    Align(
+                      alignment: Alignment(-1.0 + value / 50, 0),
+                      child: Container(
+                        width: 10,
+                        height: 10,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ),
                   ],
-                  stops: [0.0, 0.25, 0.5, 0.75, 1.0],
                 ),
               ),
             ),

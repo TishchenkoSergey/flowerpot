@@ -2,7 +2,11 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+import 'package:get_it/get_it.dart';
+
 import 'package:flutter/widgets.dart';
+
+import 'di/di.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
@@ -20,14 +24,28 @@ class AppBlocObserver extends BlocObserver {
   }
 }
 
-Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
+class BootstrapResult {
+  BootstrapResult(
+    this.serviceLocator,
+  );
+
+  final GetIt serviceLocator;
+}
+
+Future<void> bootstrap(FutureOr<Widget> Function(BootstrapResult result) builder) async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
 
   Bloc.observer = const AppBlocObserver();
 
-  // Add cross-flavor configuration here
+  final serviceLocator = await configureDependencies();
 
-  runApp(await builder());
+  final bootstrapResult = BootstrapResult(
+    serviceLocator,
+  );
+
+  runApp(await builder(bootstrapResult));
 }

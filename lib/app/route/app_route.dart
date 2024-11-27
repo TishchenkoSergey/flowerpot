@@ -1,13 +1,19 @@
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
+import 'package:get_it/get_it.dart';
 
 import 'package:flowerpot/features/features.dart';
 
 import 'app_route_enum.dart';
 
 class AppRoute {
+  AppRoute({
+    required this.serviceLocator,
+  });
+
+  final GetIt serviceLocator;
+
   GoRouter build(BuildContext context) {
     return GoRouter(
       routes: [
@@ -23,8 +29,14 @@ class AppRoute {
     return GoRoute(
       name: Routes.mainScreen.name,
       path: '/${Routes.mainScreen.name}',
-      pageBuilder: (context, state) => CupertinoPage(
-        child: const MainScreen(),
+      pageBuilder: (BuildContext context, GoRouterState state) => CupertinoPage(
+        child: BlocProvider(
+          create: (context) => MainScreenCubit(
+            createGameSessionUseCase: serviceLocator.get(),
+            getGameParametersUseCases: serviceLocator.get(),
+          ),
+          child: const MainScreen(),
+        ),
       ),
     );
   }
@@ -33,7 +45,7 @@ class AppRoute {
     return GoRoute(
       name: Routes.gamePlay.name,
       path: '/${Routes.gamePlay.name}',
-      pageBuilder: (context, state) => CupertinoPage(
+      pageBuilder: (BuildContext context, GoRouterState state) => CupertinoPage(
         child: BlocProvider(
           create: (context) => GamePlayCubit(),
           child: const GamePlayScreen(),
@@ -46,7 +58,7 @@ class AppRoute {
     return GoRoute(
       name: Routes.interactions.name,
       path: '/${Routes.interactions.name}',
-      pageBuilder: (context, state) => CupertinoPage(
+      pageBuilder: (BuildContext context, GoRouterState state) => CupertinoPage(
         child: const InteractionsScreen(),
       ),
     );

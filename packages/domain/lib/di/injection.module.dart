@@ -24,10 +24,12 @@ class DomainPackageModule extends _i526.MicroPackageModule {
 // initializes the registration of main-scope dependencies inside of GetIt
   @override
   _i687.FutureOr<void> init(_i526.GetItHelper gh) {
-    gh.factory<_i462.UpdateGameParametersUsecases>(() =>
-        _i234.UpdateGameParametersUsecase(gh<_i174.GameParametersRepository>()));
     gh.factory<_i389.GetGameParametersUseCases>(() =>
-        _i2.GetGameParametersUseCasesImpl(gh<_i174.GameParametersRepository>()));
+        _i2.GetGameParametersUseCasesImpl(
+            gh<_i174.GameParametersRepository>()));
+    gh.factory<_i462.UpdateGameParametersUsecases>(() =>
+        _i234.UpdateGameParametersUsecase(
+            gh<_i174.GameParametersRepository>()));
     gh.factory<_i883.CreateGameSessionUseCase>(
         () => _i1054.CreateGameSessionImpl(
               gh<_i174.SessionRepository>(),

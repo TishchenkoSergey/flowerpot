@@ -27,8 +27,19 @@ class MainScreenCubit extends Cubit<MainScreenState> {
   }
 
   Future<void> setSession() async {
-    await createGameSessionUseCase.execute(parameters: state.parameters!);
+    final now = DateTime.now();
+    final duration = Duration(
+      hours: now.hour,
+      minutes: now.minute,
+      seconds: now.second,
+    );
+
+    await createGameSessionUseCase.execute(
+      parameters: state.parameters!,
+      status: SessionStatus.init,
+      startGameTime: duration,
+    );
   }
 
-  //Future<void> _getAvailabilityOfContinue() async {}
+//Future<void> _getAvailabilityOfContinue() async {}
 }

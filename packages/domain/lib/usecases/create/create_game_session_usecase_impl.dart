@@ -20,23 +20,20 @@ class CreateGameSessionImpl implements CreateGameSessionUseCase {
   @override
   Future<SessionModel> execute({
     required FlowerpotParametersModel parameters,
+    required SessionStatus status,
+    required Duration startGameTime,
   }) async {
     final parameters = getGameParametersUseCases.execute();
-    final now = DateTime.now();
-    final duration = Duration(
-      hours: now.hour,
-      minutes: now.minute,
-      seconds: now.second,
-    );
 
     final session = await sessionRepository.createSession(
       SessionModel(
-        id: 1,
         parameters: parameters,
         status: SessionStatus.init,
-        startGameTime: duration,
+        startGameTime: startGameTime,
       ),
     );
+
+    await sessionRepository.changeSessionStatus(session.status);
 
     return session;
   }

@@ -16,7 +16,6 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SessionModel {
-  int get id => throw _privateConstructorUsedError;
   SessionStatus get status => throw _privateConstructorUsedError;
   FlowerpotParametersModel get parameters => throw _privateConstructorUsedError;
   Duration get startGameTime => throw _privateConstructorUsedError;
@@ -35,8 +34,7 @@ abstract class $SessionModelCopyWith<$Res> {
       _$SessionModelCopyWithImpl<$Res, SessionModel>;
   @useResult
   $Res call(
-      {int id,
-      SessionStatus status,
+      {SessionStatus status,
       FlowerpotParametersModel parameters,
       Duration startGameTime});
 
@@ -58,16 +56,11 @@ class _$SessionModelCopyWithImpl<$Res, $Val extends SessionModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? status = null,
     Object? parameters = null,
     Object? startGameTime = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -103,8 +96,7 @@ abstract class _$$SessionModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id,
-      SessionStatus status,
+      {SessionStatus status,
       FlowerpotParametersModel parameters,
       Duration startGameTime});
 
@@ -125,16 +117,11 @@ class __$$SessionModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? status = null,
     Object? parameters = null,
     Object? startGameTime = null,
   }) {
     return _then(_$SessionModelImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -155,14 +142,11 @@ class __$$SessionModelImplCopyWithImpl<$Res>
 
 class _$SessionModelImpl extends _SessionModel {
   const _$SessionModelImpl(
-      {required this.id,
-      required this.status,
+      {required this.status,
       required this.parameters,
       required this.startGameTime})
       : super._();
 
-  @override
-  final int id;
   @override
   final SessionStatus status;
   @override
@@ -172,7 +156,7 @@ class _$SessionModelImpl extends _SessionModel {
 
   @override
   String toString() {
-    return 'SessionModel(id: $id, status: $status, parameters: $parameters, startGameTime: $startGameTime)';
+    return 'SessionModel(status: $status, parameters: $parameters, startGameTime: $startGameTime)';
   }
 
   @override
@@ -180,7 +164,6 @@ class _$SessionModelImpl extends _SessionModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SessionModelImpl &&
-            (identical(other.id, id) || other.id == id) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.parameters, parameters) ||
                 other.parameters == parameters) &&
@@ -190,7 +173,7 @@ class _$SessionModelImpl extends _SessionModel {
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, status, parameters, startGameTime);
+      Object.hash(runtimeType, status, parameters, startGameTime);
 
   /// Create a copy of SessionModel
   /// with the given fields replaced by the non-null parameter values.
@@ -203,14 +186,11 @@ class _$SessionModelImpl extends _SessionModel {
 
 abstract class _SessionModel extends SessionModel {
   const factory _SessionModel(
-      {required final int id,
-      required final SessionStatus status,
+      {required final SessionStatus status,
       required final FlowerpotParametersModel parameters,
       required final Duration startGameTime}) = _$SessionModelImpl;
   const _SessionModel._() : super._();
 
-  @override
-  int get id;
   @override
   SessionStatus get status;
   @override

@@ -2,8 +2,6 @@ import 'package:injectable/injectable.dart';
 
 import 'package:domain/domain.dart';
 
-import 'update_session_status_usecase.dart';
-
 @Injectable(as: UpdateSessionStatusUsecase)
 class UpdateSessionStatusUsecaseImpl implements UpdateSessionStatusUsecase {
   UpdateSessionStatusUsecaseImpl(
@@ -17,7 +15,12 @@ class UpdateSessionStatusUsecaseImpl implements UpdateSessionStatusUsecase {
     required SessionStatus status,
   }) async {
     final session = await sessionRepository.getActiveSession();
+    SessionModel updatedSession = SessionModel(
+      status: status,
+      parameters: session.parameters,
+      startGameTime: session.startGameTime,
+    );
 
-    return sessionRepository.changeSessionStatus(session.status);
+    return sessionRepository.changeSessionStatus(updatedSession);
   }
 }

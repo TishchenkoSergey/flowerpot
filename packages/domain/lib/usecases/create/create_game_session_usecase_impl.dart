@@ -33,8 +33,6 @@ class CreateGameSessionImpl implements CreateGameSessionUseCase {
       ),
     );
 
-    await sessionRepository.changeSessionStatus(session.status);
-
     return session;
   }
 }

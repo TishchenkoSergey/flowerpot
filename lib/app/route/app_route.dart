@@ -47,7 +47,9 @@ class AppRoute {
       path: '/${Routes.gamePlay.name}',
       pageBuilder: (BuildContext context, GoRouterState state) => CupertinoPage(
         child: BlocProvider(
-          create: (context) => GamePlayCubit(),
+          create: (context) => GamePlayCubit(
+            getGameParametersUseCases: serviceLocator.get(),
+          ),
           child: const GamePlayScreen(),
         ),
       ),
@@ -59,7 +61,13 @@ class AppRoute {
       name: Routes.interactions.name,
       path: '/${Routes.interactions.name}',
       pageBuilder: (BuildContext context, GoRouterState state) => CupertinoPage(
-        child: const InteractionsScreen(),
+        child: BlocProvider(
+          create: (context) => InteractionsCubit(
+            updateGameParametersUsecases: serviceLocator.get(),
+            getGameParametersUseCases: serviceLocator.get(),
+          ),
+          child: const InteractionsScreen(),
+        ),
       ),
     );
   }

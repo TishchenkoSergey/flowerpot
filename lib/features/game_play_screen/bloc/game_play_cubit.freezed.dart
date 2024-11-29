@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$GamePlayState {
-  OpenMenu get menu => throw _privateConstructorUsedError;
+  FlowerpotParamsModel? get params => throw _privateConstructorUsedError;
   Object? get error => throw _privateConstructorUsedError;
 
   /// Create a copy of GamePlayState
@@ -32,7 +32,9 @@ abstract class $GamePlayStateCopyWith<$Res> {
           GamePlayState value, $Res Function(GamePlayState) then) =
       _$GamePlayStateCopyWithImpl<$Res, GamePlayState>;
   @useResult
-  $Res call({OpenMenu menu, Object? error});
+  $Res call({FlowerpotParamsModel? params, Object? error});
+
+  $FlowerpotParamsModelCopyWith<$Res>? get params;
 }
 
 /// @nodoc
@@ -50,16 +52,30 @@ class _$GamePlayStateCopyWithImpl<$Res, $Val extends GamePlayState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? menu = null,
+    Object? params = freezed,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
-      menu: null == menu
-          ? _value.menu
-          : menu // ignore: cast_nullable_to_non_nullable
-              as OpenMenu,
+      params: freezed == params
+          ? _value.params
+          : params // ignore: cast_nullable_to_non_nullable
+              as FlowerpotParamsModel?,
       error: freezed == error ? _value.error : error,
     ) as $Val);
+  }
+
+  /// Create a copy of GamePlayState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $FlowerpotParamsModelCopyWith<$Res>? get params {
+    if (_value.params == null) {
+      return null;
+    }
+
+    return $FlowerpotParamsModelCopyWith<$Res>(_value.params!, (value) {
+      return _then(_value.copyWith(params: value) as $Val);
+    });
   }
 }
 
@@ -71,7 +87,10 @@ abstract class _$$GamePlayStateImplCopyWith<$Res>
       __$$GamePlayStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({OpenMenu menu, Object? error});
+  $Res call({FlowerpotParamsModel? params, Object? error});
+
+  @override
+  $FlowerpotParamsModelCopyWith<$Res>? get params;
 }
 
 /// @nodoc
@@ -87,14 +106,14 @@ class __$$GamePlayStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? menu = null,
+    Object? params = freezed,
     Object? error = freezed,
   }) {
     return _then(_$GamePlayStateImpl(
-      menu: null == menu
-          ? _value.menu
-          : menu // ignore: cast_nullable_to_non_nullable
-              as OpenMenu,
+      params: freezed == params
+          ? _value.params
+          : params // ignore: cast_nullable_to_non_nullable
+              as FlowerpotParamsModel?,
       error: freezed == error ? _value.error : error,
     ));
   }
@@ -103,18 +122,16 @@ class __$$GamePlayStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$GamePlayStateImpl extends _GamePlayState {
-  const _$GamePlayStateImpl({this.menu = OpenMenu.initial, this.error})
-      : super._();
+  const _$GamePlayStateImpl({this.params, this.error}) : super._();
 
   @override
-  @JsonKey()
-  final OpenMenu menu;
+  final FlowerpotParamsModel? params;
   @override
   final Object? error;
 
   @override
   String toString() {
-    return 'GamePlayState(menu: $menu, error: $error)';
+    return 'GamePlayState(params: $params, error: $error)';
   }
 
   @override
@@ -122,13 +139,13 @@ class _$GamePlayStateImpl extends _GamePlayState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GamePlayStateImpl &&
-            (identical(other.menu, menu) || other.menu == menu) &&
+            (identical(other.params, params) || other.params == params) &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, menu, const DeepCollectionEquality().hash(error));
+      runtimeType, params, const DeepCollectionEquality().hash(error));
 
   /// Create a copy of GamePlayState
   /// with the given fields replaced by the non-null parameter values.
@@ -140,12 +157,13 @@ class _$GamePlayStateImpl extends _GamePlayState {
 }
 
 abstract class _GamePlayState extends GamePlayState {
-  const factory _GamePlayState({final OpenMenu menu, final Object? error}) =
-      _$GamePlayStateImpl;
+  const factory _GamePlayState(
+      {final FlowerpotParamsModel? params,
+      final Object? error}) = _$GamePlayStateImpl;
   const _GamePlayState._() : super._();
 
   @override
-  OpenMenu get menu;
+  FlowerpotParamsModel? get params;
   @override
   Object? get error;
 

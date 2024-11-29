@@ -11,7 +11,7 @@ class GradientStatus extends StatelessWidget {
 
   final ImageProvider image;
   final double iconSize;
-  final double value;
+  final int value;
 
   @override
   Widget build(BuildContext context) {

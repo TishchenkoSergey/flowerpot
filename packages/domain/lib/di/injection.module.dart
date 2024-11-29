@@ -25,9 +25,9 @@ class DomainPackageModule extends _i526.MicroPackageModule {
   @override
   _i687.FutureOr<void> init(_i526.GetItHelper gh) {
     gh.factory<_i462.UpdateGameParametersUsecases>(() =>
-        _i234.UpdateGameParametersUsecase(gh<_i174.GameSettingsRepository>()));
+        _i234.UpdateGameParametersUsecase(gh<_i174.GameParametersRepository>()));
     gh.factory<_i389.GetGameParametersUseCases>(() =>
-        _i2.GetGameParametersUseCasesImpl(gh<_i174.GameSettingsRepository>()));
+        _i2.GetGameParametersUseCasesImpl(gh<_i174.GameParametersRepository>()));
     gh.factory<_i883.CreateGameSessionUseCase>(
         () => _i1054.CreateGameSessionImpl(
               gh<_i174.SessionRepository>(),

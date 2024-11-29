@@ -11,7 +11,7 @@ class GetGameParametersUseCasesImpl implements GetGameParametersUseCases {
       this.repository,
       );
 
-  final GameSettingsRepository repository;
+  final GameParametersRepository repository;
 
   @override
   FlowerpotParametersModel execute() {

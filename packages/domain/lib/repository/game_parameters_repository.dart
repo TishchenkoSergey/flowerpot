@@ -1,4 +1,4 @@
-abstract class GameSettingsRepository {
+abstract class GameParametersRepository {
   int getWaterParameter();
 
   Future<int> setWaterParameter({

@@ -11,7 +11,7 @@ class UpdateGameParametersUsecase implements UpdateGameParametersUsecases {
     this.repository,
   );
 
-  final GameSettingsRepository repository;
+  final GameParametersRepository repository;
 
   @override
   Future<FlowerpotParametersModel> execute(FlowerpotParametersModel gameParameters) async {

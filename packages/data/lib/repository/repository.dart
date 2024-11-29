@@ -1,1 +1,1 @@
-export 'game_settings_repository_impl.dart';
+export 'game_parameters_repository_impl.dart';

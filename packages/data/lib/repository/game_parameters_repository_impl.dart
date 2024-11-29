@@ -3,9 +3,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:domain/domain.dart';
 
-@Injectable(as: GameSettingsRepository)
-class GameSettingsRepositoryImpl implements GameSettingsRepository {
-  GameSettingsRepositoryImpl(this.sharedPreferences);
+@Injectable(as: GameParametersRepository)
+class GameParametersRepositoryImpl implements GameParametersRepository {
+  GameParametersRepositoryImpl(this.sharedPreferences);
 
   final SharedPreferences sharedPreferences;
 

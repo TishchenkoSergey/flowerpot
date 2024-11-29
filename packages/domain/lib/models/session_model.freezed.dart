@@ -18,7 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SessionModel {
   int get id => throw _privateConstructorUsedError;
   SessionStatus get status => throw _privateConstructorUsedError;
-  FlowerpotParamsModel get params => throw _privateConstructorUsedError;
+  FlowerpotParametersModel get parameters => throw _privateConstructorUsedError;
+  Duration get startGameTime => throw _privateConstructorUsedError;
 
   /// Create a copy of SessionModel
   /// with the given fields replaced by the non-null parameter values.
@@ -33,9 +34,13 @@ abstract class $SessionModelCopyWith<$Res> {
           SessionModel value, $Res Function(SessionModel) then) =
       _$SessionModelCopyWithImpl<$Res, SessionModel>;
   @useResult
-  $Res call({int id, SessionStatus status, FlowerpotParamsModel params});
+  $Res call(
+      {int id,
+      SessionStatus status,
+      FlowerpotParametersModel parameters,
+      Duration startGameTime});
 
-  $FlowerpotParamsModelCopyWith<$Res> get params;
+  $FlowerpotParametersModelCopyWith<$Res> get parameters;
 }
 
 /// @nodoc
@@ -55,7 +60,8 @@ class _$SessionModelCopyWithImpl<$Res, $Val extends SessionModel>
   $Res call({
     Object? id = null,
     Object? status = null,
-    Object? params = null,
+    Object? parameters = null,
+    Object? startGameTime = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -66,10 +72,14 @@ class _$SessionModelCopyWithImpl<$Res, $Val extends SessionModel>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as SessionStatus,
-      params: null == params
-          ? _value.params
-          : params // ignore: cast_nullable_to_non_nullable
-              as FlowerpotParamsModel,
+      parameters: null == parameters
+          ? _value.parameters
+          : parameters // ignore: cast_nullable_to_non_nullable
+              as FlowerpotParametersModel,
+      startGameTime: null == startGameTime
+          ? _value.startGameTime
+          : startGameTime // ignore: cast_nullable_to_non_nullable
+              as Duration,
     ) as $Val);
   }
 
@@ -77,9 +87,9 @@ class _$SessionModelCopyWithImpl<$Res, $Val extends SessionModel>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FlowerpotParamsModelCopyWith<$Res> get params {
-    return $FlowerpotParamsModelCopyWith<$Res>(_value.params, (value) {
-      return _then(_value.copyWith(params: value) as $Val);
+  $FlowerpotParametersModelCopyWith<$Res> get parameters {
+    return $FlowerpotParametersModelCopyWith<$Res>(_value.parameters, (value) {
+      return _then(_value.copyWith(parameters: value) as $Val);
     });
   }
 }
@@ -92,10 +102,14 @@ abstract class _$$SessionModelImplCopyWith<$Res>
       __$$SessionModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, SessionStatus status, FlowerpotParamsModel params});
+  $Res call(
+      {int id,
+      SessionStatus status,
+      FlowerpotParametersModel parameters,
+      Duration startGameTime});
 
   @override
-  $FlowerpotParamsModelCopyWith<$Res> get params;
+  $FlowerpotParametersModelCopyWith<$Res> get parameters;
 }
 
 /// @nodoc
@@ -113,7 +127,8 @@ class __$$SessionModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? status = null,
-    Object? params = null,
+    Object? parameters = null,
+    Object? startGameTime = null,
   }) {
     return _then(_$SessionModelImpl(
       id: null == id
@@ -124,10 +139,14 @@ class __$$SessionModelImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as SessionStatus,
-      params: null == params
-          ? _value.params
-          : params // ignore: cast_nullable_to_non_nullable
-              as FlowerpotParamsModel,
+      parameters: null == parameters
+          ? _value.parameters
+          : parameters // ignore: cast_nullable_to_non_nullable
+              as FlowerpotParametersModel,
+      startGameTime: null == startGameTime
+          ? _value.startGameTime
+          : startGameTime // ignore: cast_nullable_to_non_nullable
+              as Duration,
     ));
   }
 }
@@ -136,7 +155,10 @@ class __$$SessionModelImplCopyWithImpl<$Res>
 
 class _$SessionModelImpl extends _SessionModel {
   const _$SessionModelImpl(
-      {required this.id, required this.status, this.params = _initialParams})
+      {required this.id,
+      required this.status,
+      required this.parameters,
+      required this.startGameTime})
       : super._();
 
   @override
@@ -144,12 +166,13 @@ class _$SessionModelImpl extends _SessionModel {
   @override
   final SessionStatus status;
   @override
-  @JsonKey()
-  final FlowerpotParamsModel params;
+  final FlowerpotParametersModel parameters;
+  @override
+  final Duration startGameTime;
 
   @override
   String toString() {
-    return 'SessionModel(id: $id, status: $status, params: $params)';
+    return 'SessionModel(id: $id, status: $status, parameters: $parameters, startGameTime: $startGameTime)';
   }
 
   @override
@@ -159,11 +182,15 @@ class _$SessionModelImpl extends _SessionModel {
             other is _$SessionModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.params, params) || other.params == params));
+            (identical(other.parameters, parameters) ||
+                other.parameters == parameters) &&
+            (identical(other.startGameTime, startGameTime) ||
+                other.startGameTime == startGameTime));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, status, params);
+  int get hashCode =>
+      Object.hash(runtimeType, id, status, parameters, startGameTime);
 
   /// Create a copy of SessionModel
   /// with the given fields replaced by the non-null parameter values.
@@ -178,7 +205,8 @@ abstract class _SessionModel extends SessionModel {
   const factory _SessionModel(
       {required final int id,
       required final SessionStatus status,
-      final FlowerpotParamsModel params}) = _$SessionModelImpl;
+      required final FlowerpotParametersModel parameters,
+      required final Duration startGameTime}) = _$SessionModelImpl;
   const _SessionModel._() : super._();
 
   @override
@@ -186,7 +214,9 @@ abstract class _SessionModel extends SessionModel {
   @override
   SessionStatus get status;
   @override
-  FlowerpotParamsModel get params;
+  FlowerpotParametersModel get parameters;
+  @override
+  Duration get startGameTime;
 
   /// Create a copy of SessionModel
   /// with the given fields replaced by the non-null parameter values.

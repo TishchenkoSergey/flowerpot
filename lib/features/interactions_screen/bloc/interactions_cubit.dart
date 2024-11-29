@@ -13,7 +13,7 @@ class InteractionsCubit extends Cubit<InteractionsState> {
     required this.updateGameParametersUsecases,
   }) : super(
           InteractionsState(
-            paramsModel: getGameParametersUseCases.execute(),
+            parameters: getGameParametersUseCases.execute(),
           ),
         ) {
     init();
@@ -27,7 +27,7 @@ class InteractionsCubit extends Cubit<InteractionsState> {
   Future<void> init() async {
     final paramsModel = getGameParametersUseCases.execute();
 
-    emit(state.copyWith(paramsModel: paramsModel));
+    emit(state.copyWith(parameters: paramsModel));
   }
 
   Future<void> changeCareLevel({
@@ -35,19 +35,19 @@ class InteractionsCubit extends Cubit<InteractionsState> {
     int light = 0,
     int fertilizer = 0,
   }) async {
-    final changedWater = state.paramsModel.water + water;
-    final changedLight = state.paramsModel.light + light;
-    final changedFertilizer = state.paramsModel.fertilizer + fertilizer;
+    final changedWater = state.parameters.water + water;
+    final changedLight = state.parameters.light + light;
+    final changedFertilizer = state.parameters.fertilizer + fertilizer;
 
     emit(
       InteractionsState(
-        paramsModel: state.paramsModel.copyWith(
+        parameters: state.parameters.copyWith(
           water: checkParameter(changedWater),
           light: checkParameter(changedLight),
           fertilizer: checkParameter(changedFertilizer),
         ),
       ),
     );
-    await updateGameParametersUsecases.execute(state.paramsModel);
+    await updateGameParametersUsecases.execute(state.parameters);
   }
 }

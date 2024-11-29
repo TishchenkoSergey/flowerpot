@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'flowerpot_params_model.dart';
+part of 'flowerpot_parameters_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,39 +15,39 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$FlowerpotParamsModel {
+mixin _$FlowerpotParametersModel {
   int get water => throw _privateConstructorUsedError;
   int get light => throw _privateConstructorUsedError;
   int get fertilizer => throw _privateConstructorUsedError;
 
-  /// Create a copy of FlowerpotParamsModel
+  /// Create a copy of FlowerpotParametersModel
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $FlowerpotParamsModelCopyWith<FlowerpotParamsModel> get copyWith =>
+  $FlowerpotParametersModelCopyWith<FlowerpotParametersModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FlowerpotParamsModelCopyWith<$Res> {
-  factory $FlowerpotParamsModelCopyWith(FlowerpotParamsModel value,
-          $Res Function(FlowerpotParamsModel) then) =
-      _$FlowerpotParamsModelCopyWithImpl<$Res, FlowerpotParamsModel>;
+abstract class $FlowerpotParametersModelCopyWith<$Res> {
+  factory $FlowerpotParametersModelCopyWith(FlowerpotParametersModel value,
+          $Res Function(FlowerpotParametersModel) then) =
+      _$FlowerpotParametersModelCopyWithImpl<$Res, FlowerpotParametersModel>;
   @useResult
   $Res call({int water, int light, int fertilizer});
 }
 
 /// @nodoc
-class _$FlowerpotParamsModelCopyWithImpl<$Res,
-        $Val extends FlowerpotParamsModel>
-    implements $FlowerpotParamsModelCopyWith<$Res> {
-  _$FlowerpotParamsModelCopyWithImpl(this._value, this._then);
+class _$FlowerpotParametersModelCopyWithImpl<$Res,
+        $Val extends FlowerpotParametersModel>
+    implements $FlowerpotParametersModelCopyWith<$Res> {
+  _$FlowerpotParametersModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of FlowerpotParamsModel
+  /// Create a copy of FlowerpotParametersModel
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -74,25 +74,28 @@ class _$FlowerpotParamsModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$FlowerpotParamsModelImplCopyWith<$Res>
-    implements $FlowerpotParamsModelCopyWith<$Res> {
-  factory _$$FlowerpotParamsModelImplCopyWith(_$FlowerpotParamsModelImpl value,
-          $Res Function(_$FlowerpotParamsModelImpl) then) =
-      __$$FlowerpotParamsModelImplCopyWithImpl<$Res>;
+abstract class _$$FlowerpotParametersModelImplCopyWith<$Res>
+    implements $FlowerpotParametersModelCopyWith<$Res> {
+  factory _$$FlowerpotParametersModelImplCopyWith(
+          _$FlowerpotParametersModelImpl value,
+          $Res Function(_$FlowerpotParametersModelImpl) then) =
+      __$$FlowerpotParametersModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int water, int light, int fertilizer});
 }
 
 /// @nodoc
-class __$$FlowerpotParamsModelImplCopyWithImpl<$Res>
-    extends _$FlowerpotParamsModelCopyWithImpl<$Res, _$FlowerpotParamsModelImpl>
-    implements _$$FlowerpotParamsModelImplCopyWith<$Res> {
-  __$$FlowerpotParamsModelImplCopyWithImpl(_$FlowerpotParamsModelImpl _value,
-      $Res Function(_$FlowerpotParamsModelImpl) _then)
+class __$$FlowerpotParametersModelImplCopyWithImpl<$Res>
+    extends _$FlowerpotParametersModelCopyWithImpl<$Res,
+        _$FlowerpotParametersModelImpl>
+    implements _$$FlowerpotParametersModelImplCopyWith<$Res> {
+  __$$FlowerpotParametersModelImplCopyWithImpl(
+      _$FlowerpotParametersModelImpl _value,
+      $Res Function(_$FlowerpotParametersModelImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of FlowerpotParamsModel
+  /// Create a copy of FlowerpotParametersModel
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -101,7 +104,7 @@ class __$$FlowerpotParamsModelImplCopyWithImpl<$Res>
     Object? light = null,
     Object? fertilizer = null,
   }) {
-    return _then(_$FlowerpotParamsModelImpl(
+    return _then(_$FlowerpotParametersModelImpl(
       water: null == water
           ? _value.water
           : water // ignore: cast_nullable_to_non_nullable
@@ -120,8 +123,8 @@ class __$$FlowerpotParamsModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FlowerpotParamsModelImpl implements _FlowerpotParamsModel {
-  const _$FlowerpotParamsModelImpl(
+class _$FlowerpotParametersModelImpl implements _FlowerpotParametersModel {
+  const _$FlowerpotParametersModelImpl(
       {required this.water, required this.light, required this.fertilizer});
 
   @override
@@ -133,14 +136,14 @@ class _$FlowerpotParamsModelImpl implements _FlowerpotParamsModel {
 
   @override
   String toString() {
-    return 'FlowerpotParamsModel(water: $water, light: $light, fertilizer: $fertilizer)';
+    return 'FlowerpotParametersModel(water: $water, light: $light, fertilizer: $fertilizer)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FlowerpotParamsModelImpl &&
+            other is _$FlowerpotParametersModelImpl &&
             (identical(other.water, water) || other.water == water) &&
             (identical(other.light, light) || other.light == light) &&
             (identical(other.fertilizer, fertilizer) ||
@@ -150,22 +153,21 @@ class _$FlowerpotParamsModelImpl implements _FlowerpotParamsModel {
   @override
   int get hashCode => Object.hash(runtimeType, water, light, fertilizer);
 
-  /// Create a copy of FlowerpotParamsModel
+  /// Create a copy of FlowerpotParametersModel
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$FlowerpotParamsModelImplCopyWith<_$FlowerpotParamsModelImpl>
-      get copyWith =>
-          __$$FlowerpotParamsModelImplCopyWithImpl<_$FlowerpotParamsModelImpl>(
-              this, _$identity);
+  _$$FlowerpotParametersModelImplCopyWith<_$FlowerpotParametersModelImpl>
+      get copyWith => __$$FlowerpotParametersModelImplCopyWithImpl<
+          _$FlowerpotParametersModelImpl>(this, _$identity);
 }
 
-abstract class _FlowerpotParamsModel implements FlowerpotParamsModel {
-  const factory _FlowerpotParamsModel(
+abstract class _FlowerpotParametersModel implements FlowerpotParametersModel {
+  const factory _FlowerpotParametersModel(
       {required final int water,
       required final int light,
-      required final int fertilizer}) = _$FlowerpotParamsModelImpl;
+      required final int fertilizer}) = _$FlowerpotParametersModelImpl;
 
   @override
   int get water;
@@ -174,10 +176,10 @@ abstract class _FlowerpotParamsModel implements FlowerpotParamsModel {
   @override
   int get fertilizer;
 
-  /// Create a copy of FlowerpotParamsModel
+  /// Create a copy of FlowerpotParametersModel
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FlowerpotParamsModelImplCopyWith<_$FlowerpotParamsModelImpl>
+  _$$FlowerpotParametersModelImplCopyWith<_$FlowerpotParametersModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

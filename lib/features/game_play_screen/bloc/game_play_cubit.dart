@@ -17,8 +17,8 @@ class GamePlayCubit extends Cubit<GamePlayState> {
   final GetGameParametersUseCases getGameParametersUseCases;
 
   Future<void> init() async {
-    final params = getGameParametersUseCases.execute();
+    final parameters = getGameParametersUseCases.execute();
 
-    emit(state.copyWith(params: params));
+    emit(state.copyWith(parameters: parameters));
   }
 }

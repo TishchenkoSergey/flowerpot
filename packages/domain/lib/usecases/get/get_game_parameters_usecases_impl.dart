@@ -14,12 +14,12 @@ class GetGameParametersUseCasesImpl implements GetGameParametersUseCases {
   final GameSettingsRepository repository;
 
   @override
-  FlowerpotParamsModel execute() {
+  FlowerpotParametersModel execute() {
     final water = repository.getWaterParameter();
     final light = repository.getLightParameter();
     final fertilizer = repository.getFertilizerParameter();
 
-    return FlowerpotParamsModel(
+    return FlowerpotParametersModel(
       water: water,
       light: light,
       fertilizer: fertilizer,

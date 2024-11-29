@@ -14,7 +14,7 @@ class UpdateGameParametersUsecase implements UpdateGameParametersUsecases {
   final GameSettingsRepository repository;
 
   @override
-  Future<FlowerpotParamsModel> execute(FlowerpotParamsModel gameParameters) async {
+  Future<FlowerpotParametersModel> execute(FlowerpotParametersModel gameParameters) async {
     final water = await repository.setWaterParameter(
       water: gameParameters.water,
     );
@@ -25,7 +25,7 @@ class UpdateGameParametersUsecase implements UpdateGameParametersUsecases {
       fertilizer: gameParameters.fertilizer,
     );
 
-    return FlowerpotParamsModel(
+    return FlowerpotParametersModel(
       water: water,
       light: light,
       fertilizer: fertilizer,

@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$InteractionsState {
-  FlowerpotParamsModel get paramsModel => throw _privateConstructorUsedError;
+  FlowerpotParametersModel get parameters => throw _privateConstructorUsedError;
   Object? get error => throw _privateConstructorUsedError;
 
   /// Create a copy of InteractionsState
@@ -32,9 +32,9 @@ abstract class $InteractionsStateCopyWith<$Res> {
           InteractionsState value, $Res Function(InteractionsState) then) =
       _$InteractionsStateCopyWithImpl<$Res, InteractionsState>;
   @useResult
-  $Res call({FlowerpotParamsModel paramsModel, Object? error});
+  $Res call({FlowerpotParametersModel parameters, Object? error});
 
-  $FlowerpotParamsModelCopyWith<$Res> get paramsModel;
+  $FlowerpotParametersModelCopyWith<$Res> get parameters;
 }
 
 /// @nodoc
@@ -52,14 +52,14 @@ class _$InteractionsStateCopyWithImpl<$Res, $Val extends InteractionsState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? paramsModel = null,
+    Object? parameters = null,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
-      paramsModel: null == paramsModel
-          ? _value.paramsModel
-          : paramsModel // ignore: cast_nullable_to_non_nullable
-              as FlowerpotParamsModel,
+      parameters: null == parameters
+          ? _value.parameters
+          : parameters // ignore: cast_nullable_to_non_nullable
+              as FlowerpotParametersModel,
       error: freezed == error ? _value.error : error,
     ) as $Val);
   }
@@ -68,9 +68,9 @@ class _$InteractionsStateCopyWithImpl<$Res, $Val extends InteractionsState>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FlowerpotParamsModelCopyWith<$Res> get paramsModel {
-    return $FlowerpotParamsModelCopyWith<$Res>(_value.paramsModel, (value) {
-      return _then(_value.copyWith(paramsModel: value) as $Val);
+  $FlowerpotParametersModelCopyWith<$Res> get parameters {
+    return $FlowerpotParametersModelCopyWith<$Res>(_value.parameters, (value) {
+      return _then(_value.copyWith(parameters: value) as $Val);
     });
   }
 }
@@ -83,10 +83,10 @@ abstract class _$$InteractionsStateImplCopyWith<$Res>
       __$$InteractionsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({FlowerpotParamsModel paramsModel, Object? error});
+  $Res call({FlowerpotParametersModel parameters, Object? error});
 
   @override
-  $FlowerpotParamsModelCopyWith<$Res> get paramsModel;
+  $FlowerpotParametersModelCopyWith<$Res> get parameters;
 }
 
 /// @nodoc
@@ -102,14 +102,14 @@ class __$$InteractionsStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? paramsModel = null,
+    Object? parameters = null,
     Object? error = freezed,
   }) {
     return _then(_$InteractionsStateImpl(
-      paramsModel: null == paramsModel
-          ? _value.paramsModel
-          : paramsModel // ignore: cast_nullable_to_non_nullable
-              as FlowerpotParamsModel,
+      parameters: null == parameters
+          ? _value.parameters
+          : parameters // ignore: cast_nullable_to_non_nullable
+              as FlowerpotParametersModel,
       error: freezed == error ? _value.error : error,
     ));
   }
@@ -118,17 +118,17 @@ class __$$InteractionsStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InteractionsStateImpl extends _InteractionsState {
-  const _$InteractionsStateImpl({required this.paramsModel, this.error})
+  const _$InteractionsStateImpl({required this.parameters, this.error})
       : super._();
 
   @override
-  final FlowerpotParamsModel paramsModel;
+  final FlowerpotParametersModel parameters;
   @override
   final Object? error;
 
   @override
   String toString() {
-    return 'InteractionsState(paramsModel: $paramsModel, error: $error)';
+    return 'InteractionsState(parameters: $parameters, error: $error)';
   }
 
   @override
@@ -136,14 +136,14 @@ class _$InteractionsStateImpl extends _InteractionsState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InteractionsStateImpl &&
-            (identical(other.paramsModel, paramsModel) ||
-                other.paramsModel == paramsModel) &&
+            (identical(other.parameters, parameters) ||
+                other.parameters == parameters) &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, paramsModel, const DeepCollectionEquality().hash(error));
+      runtimeType, parameters, const DeepCollectionEquality().hash(error));
 
   /// Create a copy of InteractionsState
   /// with the given fields replaced by the non-null parameter values.
@@ -157,12 +157,12 @@ class _$InteractionsStateImpl extends _InteractionsState {
 
 abstract class _InteractionsState extends InteractionsState {
   const factory _InteractionsState(
-      {required final FlowerpotParamsModel paramsModel,
+      {required final FlowerpotParametersModel parameters,
       final Object? error}) = _$InteractionsStateImpl;
   const _InteractionsState._() : super._();
 
   @override
-  FlowerpotParamsModel get paramsModel;
+  FlowerpotParametersModel get parameters;
   @override
   Object? get error;
 

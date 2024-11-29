@@ -36,17 +36,17 @@ class GamePlayScreen extends StatelessWidget {
                       children: [
                         GradientStatus(
                           image: Assets.icons.water.provider(),
-                          value: state.params?.water ?? 50,
+                          value: state.parameters?.water ?? 50,
                         ),
                         SizedBox(height: 8),
                         GradientStatus(
                           image: Assets.icons.light.provider(),
-                          value: state.params?.light ?? 50,
+                          value: state.parameters?.light ?? 50,
                         ),
                         SizedBox(height: 8),
                         GradientStatus(
                           image: Assets.icons.fertilizer.provider(),
-                          value: state.params?.fertilizer ?? 50,
+                          value: state.parameters?.fertilizer ?? 50,
                         ),
                       ],
                     ),

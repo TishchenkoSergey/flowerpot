@@ -3,7 +3,7 @@ part of 'game_play_cubit.dart';
 @freezed
 class GamePlayState with _$GamePlayState {
   const factory GamePlayState({
-    FlowerpotParamsModel? params,
+    FlowerpotParametersModel? parameters,
     Object? error,
   }) = _GamePlayState;
 

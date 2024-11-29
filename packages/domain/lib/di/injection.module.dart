@@ -29,6 +29,9 @@ class DomainPackageModule extends _i526.MicroPackageModule {
     gh.factory<_i389.GetGameParametersUseCases>(() =>
         _i2.GetGameParametersUseCasesImpl(gh<_i174.GameSettingsRepository>()));
     gh.factory<_i883.CreateGameSessionUseCase>(
-        () => _i1054.CreateGameSessionImpl(gh<_i174.SessionRepository>()));
+        () => _i1054.CreateGameSessionImpl(
+              gh<_i174.SessionRepository>(),
+              gh<_i389.GetGameParametersUseCases>(),
+            ));
   }
 }

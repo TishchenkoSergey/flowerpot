@@ -17,7 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$MainScreenState {
   bool get continueAvailability => throw _privateConstructorUsedError;
-  FlowerpotParamsModel? get params => throw _privateConstructorUsedError;
+  FlowerpotParametersModel? get parameters =>
+      throw _privateConstructorUsedError;
   Object? get error => throw _privateConstructorUsedError;
 
   /// Create a copy of MainScreenState
@@ -34,9 +35,11 @@ abstract class $MainScreenStateCopyWith<$Res> {
       _$MainScreenStateCopyWithImpl<$Res, MainScreenState>;
   @useResult
   $Res call(
-      {bool continueAvailability, FlowerpotParamsModel? params, Object? error});
+      {bool continueAvailability,
+      FlowerpotParametersModel? parameters,
+      Object? error});
 
-  $FlowerpotParamsModelCopyWith<$Res>? get params;
+  $FlowerpotParametersModelCopyWith<$Res>? get parameters;
 }
 
 /// @nodoc
@@ -55,7 +58,7 @@ class _$MainScreenStateCopyWithImpl<$Res, $Val extends MainScreenState>
   @override
   $Res call({
     Object? continueAvailability = null,
-    Object? params = freezed,
+    Object? parameters = freezed,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
@@ -63,10 +66,10 @@ class _$MainScreenStateCopyWithImpl<$Res, $Val extends MainScreenState>
           ? _value.continueAvailability
           : continueAvailability // ignore: cast_nullable_to_non_nullable
               as bool,
-      params: freezed == params
-          ? _value.params
-          : params // ignore: cast_nullable_to_non_nullable
-              as FlowerpotParamsModel?,
+      parameters: freezed == parameters
+          ? _value.parameters
+          : parameters // ignore: cast_nullable_to_non_nullable
+              as FlowerpotParametersModel?,
       error: freezed == error ? _value.error : error,
     ) as $Val);
   }
@@ -75,13 +78,13 @@ class _$MainScreenStateCopyWithImpl<$Res, $Val extends MainScreenState>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FlowerpotParamsModelCopyWith<$Res>? get params {
-    if (_value.params == null) {
+  $FlowerpotParametersModelCopyWith<$Res>? get parameters {
+    if (_value.parameters == null) {
       return null;
     }
 
-    return $FlowerpotParamsModelCopyWith<$Res>(_value.params!, (value) {
-      return _then(_value.copyWith(params: value) as $Val);
+    return $FlowerpotParametersModelCopyWith<$Res>(_value.parameters!, (value) {
+      return _then(_value.copyWith(parameters: value) as $Val);
     });
   }
 }
@@ -95,10 +98,12 @@ abstract class _$$MainScreenStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool continueAvailability, FlowerpotParamsModel? params, Object? error});
+      {bool continueAvailability,
+      FlowerpotParametersModel? parameters,
+      Object? error});
 
   @override
-  $FlowerpotParamsModelCopyWith<$Res>? get params;
+  $FlowerpotParametersModelCopyWith<$Res>? get parameters;
 }
 
 /// @nodoc
@@ -115,7 +120,7 @@ class __$$MainScreenStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? continueAvailability = null,
-    Object? params = freezed,
+    Object? parameters = freezed,
     Object? error = freezed,
   }) {
     return _then(_$MainScreenStateImpl(
@@ -123,10 +128,10 @@ class __$$MainScreenStateImplCopyWithImpl<$Res>
           ? _value.continueAvailability
           : continueAvailability // ignore: cast_nullable_to_non_nullable
               as bool,
-      params: freezed == params
-          ? _value.params
-          : params // ignore: cast_nullable_to_non_nullable
-              as FlowerpotParamsModel?,
+      parameters: freezed == parameters
+          ? _value.parameters
+          : parameters // ignore: cast_nullable_to_non_nullable
+              as FlowerpotParametersModel?,
       error: freezed == error ? _value.error : error,
     ));
   }
@@ -136,20 +141,20 @@ class __$$MainScreenStateImplCopyWithImpl<$Res>
 
 class _$MainScreenStateImpl extends _MainScreenState {
   const _$MainScreenStateImpl(
-      {this.continueAvailability = false, this.params, this.error})
+      {this.continueAvailability = false, this.parameters, this.error})
       : super._();
 
   @override
   @JsonKey()
   final bool continueAvailability;
   @override
-  final FlowerpotParamsModel? params;
+  final FlowerpotParametersModel? parameters;
   @override
   final Object? error;
 
   @override
   String toString() {
-    return 'MainScreenState(continueAvailability: $continueAvailability, params: $params, error: $error)';
+    return 'MainScreenState(continueAvailability: $continueAvailability, parameters: $parameters, error: $error)';
   }
 
   @override
@@ -159,12 +164,13 @@ class _$MainScreenStateImpl extends _MainScreenState {
             other is _$MainScreenStateImpl &&
             (identical(other.continueAvailability, continueAvailability) ||
                 other.continueAvailability == continueAvailability) &&
-            (identical(other.params, params) || other.params == params) &&
+            (identical(other.parameters, parameters) ||
+                other.parameters == parameters) &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, continueAvailability, params,
+  int get hashCode => Object.hash(runtimeType, continueAvailability, parameters,
       const DeepCollectionEquality().hash(error));
 
   /// Create a copy of MainScreenState
@@ -180,14 +186,14 @@ class _$MainScreenStateImpl extends _MainScreenState {
 abstract class _MainScreenState extends MainScreenState {
   const factory _MainScreenState(
       {final bool continueAvailability,
-      final FlowerpotParamsModel? params,
+      final FlowerpotParametersModel? parameters,
       final Object? error}) = _$MainScreenStateImpl;
   const _MainScreenState._() : super._();
 
   @override
   bool get continueAvailability;
   @override
-  FlowerpotParamsModel? get params;
+  FlowerpotParametersModel? get parameters;
   @override
   Object? get error;
 

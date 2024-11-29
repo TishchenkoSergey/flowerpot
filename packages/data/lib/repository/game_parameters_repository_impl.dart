@@ -3,6 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:domain/domain.dart';
 
+import 'package:data/constants/constant.dart';
+
 @Injectable(as: GameParametersRepository)
 class GameParametersRepositoryImpl implements GameParametersRepository {
   GameParametersRepositoryImpl(this.sharedPreferences);
@@ -15,39 +17,39 @@ class GameParametersRepositoryImpl implements GameParametersRepository {
 
   @override
   int getWaterParameter() {
-    return sharedPreferences.getInt(_waterKey) ?? 50;
+    return sharedPreferences.getInt(_waterKey) ?? kFlowerpotParameterWater;
   }
 
   @override
   int getLightParameter() {
-    return sharedPreferences.getInt(_lightKey) ?? 50;
+    return sharedPreferences.getInt(_lightKey) ?? kFlowerpotParameterLight;
   }
 
   @override
   int getFertilizerParameter() {
-    return sharedPreferences.getInt(_fertilizerKey) ?? 50;
+    return sharedPreferences.getInt(_fertilizerKey) ?? kFlowerpotParameterFertilizer;
   }
 
   @override
-  Future<int> setWaterParameter({
-    required int water,
-  }) async {
+  Future<int> setWaterParameter(
+    int water,
+  ) async {
     await sharedPreferences.setInt(_waterKey, water);
     return water;
   }
 
   @override
-  Future<int> setLightParameter({
-    required int light,
-  }) async {
+  Future<int> setLightParameter(
+    int light,
+  ) async {
     await sharedPreferences.setInt(_lightKey, light);
     return light;
   }
 
   @override
-  Future<int> setFertilizerParameter({
-    required int fertilizer,
-  }) async {
+  Future<int> setFertilizerParameter(
+    int fertilizer,
+  ) async {
     await sharedPreferences.setInt(_fertilizerKey, fertilizer);
     return fertilizer;
   }

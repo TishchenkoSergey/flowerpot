@@ -14,13 +14,6 @@ class UpdateSessionStatusUsecaseImpl implements UpdateSessionStatusUsecase {
   Future<void> execute({
     required SessionStatus status,
   }) async {
-    final session = await sessionRepository.getActiveSession();
-    SessionModel updatedSession = SessionModel(
-      status: status,
-      parameters: session.parameters,
-      startGameTime: session.startGameTime,
-    );
-
-    return sessionRepository.changeSessionStatus(updatedSession);
+    return sessionRepository.changeSessionStatus(status);
   }
 }

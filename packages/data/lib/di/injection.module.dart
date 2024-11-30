@@ -8,7 +8,9 @@ import 'dart:async' as _i687;
 
 import 'package:data/di/injection.dart' as _i237;
 import 'package:data/repository/game_parameters_repository_impl.dart' as _i411;
+import 'package:data/repository/game_start_time_repository_impl.dart' as _i112;
 import 'package:data/repository/game_status_repository_impl.dart' as _i1026;
+import 'package:data/repository/session_repository_impl.dart' as _i791;
 import 'package:domain/domain.dart' as _i494;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
@@ -24,8 +26,18 @@ class DataPackageModule extends _i526.MicroPackageModule {
     );
     gh.factory<_i494.GameParametersRepository>(() =>
         _i411.GameParametersRepositoryImpl(gh<_i460.SharedPreferences>()));
+    gh.factory<_i494.GameStartTimeRepository>(
+        () => _i112.GameStartTimeRepositoryImpl(gh<_i460.SharedPreferences>()));
     gh.factory<_i494.GameStatusRepository>(
         () => _i1026.GameStatusRepositoryImpl(gh<_i460.SharedPreferences>()));
+    gh.factory<_i494.SessionRepository>(() => _i791.SessionRepositoryImpl(
+          gh<_i494.GameParametersRepository>(),
+          gh<_i460.SharedPreferences>(),
+          gh<_i494.GameStatusRepository>(),
+          gh<_i494.GetGameParametersUseCases>(),
+          gh<_i494.GameStartTimeRepository>(),
+          gh<_i494.UpdateGameParametersUsecases>(),
+        ));
   }
 }
 

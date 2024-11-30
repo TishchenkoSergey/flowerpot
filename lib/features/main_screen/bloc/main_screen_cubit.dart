@@ -11,16 +11,18 @@ class MainScreenCubit extends Cubit<MainScreenState> {
   MainScreenCubit({
     required this.createGameSessionUseCase,
     required this.getGameParametersUseCases,
+    required this.getAvailabilityOfSessionsUseCase,
   }) : super(const MainScreenState()) {
     init();
   }
 
   final GetGameParametersUseCases getGameParametersUseCases;
   final CreateGameSessionUseCase createGameSessionUseCase;
+  final GetAvailabilityOfSessionsUseCase getAvailabilityOfSessionsUseCase;
 
   Future<void> init() async {
     final parameters = getGameParametersUseCases.execute();
-
+    await _getAvailabilityOfContinue();
     emit(state.copyWith(
       parameters: parameters,
     ));
@@ -41,5 +43,12 @@ class MainScreenCubit extends Cubit<MainScreenState> {
     );
   }
 
-//Future<void> _getAvailabilityOfContinue() async {}
+  Future<void> continueSession() async {
+
+  }
+
+  Future<void> _getAvailabilityOfContinue() async {
+    final availability = await getAvailabilityOfSessionsUseCase.execute();
+    emit(state.copyWith(continueAvailability: availability));
+  }
 }

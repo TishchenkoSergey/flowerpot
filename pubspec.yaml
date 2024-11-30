@@ -22,13 +22,13 @@ dependencies:
   flutter_svg: ^2.0.11
   l10n_flutter: ^1.0.7
   shared_preferences: ^2.3.3
+  freezed_annotation: ^2.4.4
 
   domain:
     path: ./packages/domain
 
   data:
     path: ./packages/data
-
 
 dev_dependencies:
   flutter_test:

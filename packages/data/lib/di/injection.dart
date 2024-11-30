@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 late GetIt di;
 
 @InjectableInit.microPackage()
-initMicroPackage() {}
+void initMicroPackage() {}
 
 @module
 abstract class RegisterModule {

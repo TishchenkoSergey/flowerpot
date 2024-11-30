@@ -34,6 +34,7 @@ class AppRoute {
           create: (context) => MainScreenCubit(
             createGameSessionUseCase: serviceLocator.get(),
             getGameParametersUseCases: serviceLocator.get(),
+            getAvailabilityOfSessionsUseCase: serviceLocator.get(),
           ),
           child: const MainScreen(),
         ),

@@ -1,0 +1,4 @@
+enum GameParametersType {
+  standard,
+  active,
+}

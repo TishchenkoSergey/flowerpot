@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 class InteractionTitle extends StatelessWidget {
   const InteractionTitle({
     required this.title,
-  }) : super();
+    super.key,
+  });
 
   final String title;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -21,10 +22,10 @@ class InteractionTitle extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Text(
               title,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
           ),
           Expanded(

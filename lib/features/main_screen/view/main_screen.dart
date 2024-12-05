@@ -32,9 +32,9 @@ class MainScreen extends StatelessWidget {
                   fontSize: 36,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 32),
+                padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: Text(
                   context.l10n.feature_main_text_description,
                   textAlign: TextAlign.center,
@@ -43,7 +43,7 @@ class MainScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 100),
+              const SizedBox(height: 100),
               CustomButton(
                 title: context.l10n.feature_welcome_button_new_game,
                 onPressed: () => context.goNamed(Routes.gamePlay.name),

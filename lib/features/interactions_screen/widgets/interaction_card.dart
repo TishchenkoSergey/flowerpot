@@ -8,7 +8,8 @@ class InteractionCard extends StatelessWidget {
     required this.comment,
     this.time = const Duration(minutes: 5),
     this.iconSize = 48.0,
-  }) : super();
+    super.key,
+  });
 
   final VoidCallback? onPressed;
   final ImageProvider image;
@@ -60,7 +61,7 @@ class InteractionCard extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                '${time.toString().split('.').first}',
+                time.toString().split('.').first,
                 style: const TextStyle(fontSize: 12),
               ),
             ],

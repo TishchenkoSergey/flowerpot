@@ -4,7 +4,8 @@ class GradientStatus extends StatelessWidget {
   const GradientStatus({
     required this.image,
     this.iconSize = 48.0,
-  }) : super();
+    super.key,
+  });
 
   final ImageProvider image;
   final double iconSize;
@@ -12,7 +13,7 @@ class GradientStatus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 8, right: 16, top: 8),
+      padding: const EdgeInsets.only(left: 8, right: 16, top: 8),
       child: Row(
         children: [
           Container(
@@ -27,10 +28,10 @@ class GradientStatus extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              height: 10.0,
+              height: 10,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                gradient: LinearGradient(
+                borderRadius: BorderRadius.circular(10),
+                gradient: const LinearGradient(
                   colors: [
                     Colors.red,
                     Colors.yellow,

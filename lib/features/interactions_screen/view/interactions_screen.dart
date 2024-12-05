@@ -20,7 +20,7 @@ class InteractionsScreen extends StatelessWidget {
           ),
           centerTitle: true,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () => context.goNamed(Routes.gamePlay.name),
           ),
         ),

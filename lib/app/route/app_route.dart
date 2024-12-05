@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:flowerpot/features/features.dart';
 
@@ -23,8 +22,8 @@ class AppRoute {
     return GoRoute(
       name: Routes.mainScreen.name,
       path: '/${Routes.mainScreen.name}',
-      pageBuilder: (context, state) => CupertinoPage(
-        child: const MainScreen(),
+      pageBuilder: (context, state) => const CupertinoPage(
+        child: MainScreen(),
       ),
     );
   }
@@ -46,8 +45,8 @@ class AppRoute {
     return GoRoute(
       name: Routes.interactions.name,
       path: '/${Routes.interactions.name}',
-      pageBuilder: (context, state) => CupertinoPage(
-        child: const InteractionsScreen(),
+      pageBuilder: (context, state) => const CupertinoPage(
+        child: InteractionsScreen(),
       ),
     );
   }

@@ -14,7 +14,7 @@ class GamePlayScreen extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        constraints: BoxConstraints.expand(),
+        constraints: const BoxConstraints.expand(),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: backgroundDecoration,
@@ -27,16 +27,15 @@ class GamePlayScreen extends StatelessWidget {
               InkWell(
                 onTap: () => context.goNamed(Routes.interactions.name),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     GradientStatus(
                       image: Assets.icons.water.provider(),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     GradientStatus(
                       image: Assets.icons.light.provider(),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     GradientStatus(
                       image: Assets.icons.fertilizer.provider(),
                     ),

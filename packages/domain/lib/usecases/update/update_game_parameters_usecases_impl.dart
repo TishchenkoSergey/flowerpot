@@ -8,21 +8,26 @@ import 'update_game_parameters_usecases.dart';
 @Injectable(as: UpdateGameParametersUsecases)
 class UpdateGameParametersUsecase implements UpdateGameParametersUsecases {
   UpdateGameParametersUsecase(
+    @factoryParam this.type,
     this.repository,
   );
 
   final GameParametersRepository repository;
+  final GameParametersType type;
 
   @override
   Future<FlowerpotParametersModel> execute(FlowerpotParametersModel gameParameters) async {
     final water = await repository.setWaterParameter(
-      gameParameters.water,
+      water: gameParameters.water,
+      type: type,
     );
     final light = await repository.setLightParameter(
-      gameParameters.light,
+      light: gameParameters.light,
+      type: type,
     );
     final fertilizer = await repository.setFertilizerParameter(
-      gameParameters.fertilizer,
+      fertilizer: gameParameters.fertilizer,
+      type: type,
     );
 
     return FlowerpotParametersModel(

@@ -10,7 +10,6 @@ class SessionRepositoryImpl implements SessionRepository {
     this.gameParametersRepository,
     this.sharedPreferences,
     this.gameStatusRepository,
-    this.getGameParametersUseCases,
     this.gameStartTimeRepository,
     this.updateGameParametersUsecases,
   );
@@ -19,7 +18,6 @@ class SessionRepositoryImpl implements SessionRepository {
   final SharedPreferences sharedPreferences;
   final GameStatusRepository gameStatusRepository;
   final GameStartTimeRepository gameStartTimeRepository;
-  final GetGameParametersUseCases getGameParametersUseCases;
   final UpdateGameParametersUsecases updateGameParametersUsecases;
 
   @override
@@ -27,9 +25,9 @@ class SessionRepositoryImpl implements SessionRepository {
     final status = await gameStatusRepository.setSessionStatus(status: session.status!);
     final startGame = await gameStartTimeRepository.setStartGame(time: session.startGameTime);
     final parameters = FlowerpotParametersModel(
-      water: await gameParametersRepository.setWaterParameter(session.parameters!.water),
-      light: await gameParametersRepository.setLightParameter(session.parameters!.light),
-      fertilizer: await gameParametersRepository.setFertilizerParameter(session.parameters!.fertilizer),
+      water: await gameParametersRepository.setWaterParameter(water: session.parameters!.water),
+      light: await gameParametersRepository.setLightParameter(light: session.parameters!.light),
+      fertilizer: await gameParametersRepository.setFertilizerParameter(fertilizer: session.parameters!.fertilizer),
     );
 
     return SessionModel(

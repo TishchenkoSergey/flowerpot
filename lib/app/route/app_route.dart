@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
+import 'package:domain/domain.dart';
+
 import 'package:flowerpot/features/features.dart';
 
 import 'app_route_enum.dart';
@@ -29,15 +31,8 @@ class AppRoute {
     return GoRoute(
       name: Routes.mainScreen.name,
       path: '/${Routes.mainScreen.name}',
-      pageBuilder: (BuildContext context, GoRouterState state) => CupertinoPage(
-        child: BlocProvider(
-          create: (context) => MainScreenCubit(
-            createGameSessionUseCase: serviceLocator.get(),
-            getGameParametersUseCases: serviceLocator.get(),
-            getAvailabilityOfSessionsUseCase: serviceLocator.get(),
-          ),
-          child: const MainScreen(),
-        ),
+      pageBuilder: (context, state) => CupertinoPage(
+        child: const MainScreen(),
       ),
     );
   }
@@ -49,7 +44,7 @@ class AppRoute {
       pageBuilder: (BuildContext context, GoRouterState state) => CupertinoPage(
         child: BlocProvider(
           create: (context) => GamePlayCubit(
-            getGameParametersUseCases: serviceLocator.get(),
+            getGameParametersUseCases: serviceLocator.get(param1: GameParametersType.standard),
             updateSessionStatusUsecase: serviceLocator.get(),
           ),
           child: const GamePlayScreen(),
@@ -65,8 +60,8 @@ class AppRoute {
       pageBuilder: (BuildContext context, GoRouterState state) => CupertinoPage(
         child: BlocProvider(
           create: (context) => InteractionsCubit(
-            updateGameParametersUsecases: serviceLocator.get(),
-            getGameParametersUseCases: serviceLocator.get(),
+            updateGameParametersUsecases: serviceLocator.get(param1: GameParametersType.active),
+            getGameParametersUseCases: serviceLocator.get(param1: GameParametersType.standard),
           ),
           child: const InteractionsScreen(),
         ),

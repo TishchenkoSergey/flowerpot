@@ -11,46 +11,55 @@ class GameParametersRepositoryImpl implements GameParametersRepository {
 
   final SharedPreferences sharedPreferences;
 
-  static const _waterKey = 'waterKey';
-  static const _lightKey = 'lightKey';
-  static const _fertilizerKey = 'fertilizerKey';
+  static const _waterKey = 'water';
+  static const _lightKey = 'light';
+  static const _fertilizerKey = 'fertilizer';
 
   @override
-  int getWaterParameter() {
-    return sharedPreferences.getInt(_waterKey) ?? kFlowerpotParameterWater;
+  int getWaterParameter({
+    GameParametersType type = GameParametersType.standard,
+  }) {
+    return sharedPreferences.getInt('$_waterKey$type') ?? kFlowerpotParameterWater;
   }
 
   @override
-  int getLightParameter() {
-    return sharedPreferences.getInt(_lightKey) ?? kFlowerpotParameterLight;
+  int getLightParameter({
+    GameParametersType type = GameParametersType.standard,
+  }) {
+    return sharedPreferences.getInt('$_lightKey$type') ?? kFlowerpotParameterLight;
   }
 
   @override
-  int getFertilizerParameter() {
-    return sharedPreferences.getInt(_fertilizerKey) ?? kFlowerpotParameterFertilizer;
+  int getFertilizerParameter({
+    GameParametersType type = GameParametersType.standard,
+  }) {
+    return sharedPreferences.getInt('$_fertilizerKey$type') ?? kFlowerpotParameterFertilizer;
   }
 
   @override
-  Future<int> setWaterParameter(
-    int water,
-  ) async {
-    await sharedPreferences.setInt(_waterKey, water);
+  Future<int> setWaterParameter({
+    required int water,
+    GameParametersType type = GameParametersType.standard,
+  }) async {
+    await sharedPreferences.setInt('$_waterKey$type', water);
     return water;
   }
 
   @override
-  Future<int> setLightParameter(
-    int light,
-  ) async {
-    await sharedPreferences.setInt(_lightKey, light);
+  Future<int> setLightParameter({
+    required int light,
+    GameParametersType type = GameParametersType.standard,
+  }) async {
+    await sharedPreferences.setInt('$_lightKey$type', light);
     return light;
   }
 
   @override
-  Future<int> setFertilizerParameter(
-    int fertilizer,
-  ) async {
-    await sharedPreferences.setInt(_fertilizerKey, fertilizer);
+  Future<int> setFertilizerParameter({
+    required int fertilizer,
+    GameParametersType type = GameParametersType.standard,
+  }) async {
+    await sharedPreferences.setInt('$_fertilizerKey$type', fertilizer);
     return fertilizer;
   }
 }

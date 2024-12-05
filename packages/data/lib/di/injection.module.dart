@@ -34,7 +34,6 @@ class DataPackageModule extends _i526.MicroPackageModule {
           gh<_i494.GameParametersRepository>(),
           gh<_i460.SharedPreferences>(),
           gh<_i494.GameStatusRepository>(),
-          gh<_i494.GetGameParametersUseCases>(),
           gh<_i494.GameStartTimeRepository>(),
           gh<_i494.UpdateGameParametersUsecases>(),
         ));

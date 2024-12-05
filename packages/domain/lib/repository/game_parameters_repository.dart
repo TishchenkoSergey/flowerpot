@@ -1,19 +1,30 @@
+import '../models/models.dart';
+
 abstract class GameParametersRepository {
-  int getWaterParameter();
+  int getWaterParameter({
+    GameParametersType type = GameParametersType.active,
+  });
 
-  Future<int> setWaterParameter(
-    int water,
-  );
+  Future<int> setWaterParameter({
+    required int water,
+    GameParametersType type = GameParametersType.active,
+  });
 
-  int getLightParameter();
+  int getLightParameter({
+    GameParametersType type = GameParametersType.active,
+  });
 
-  Future<int> setLightParameter(
-    int light,
-  );
+  Future<int> setLightParameter({
+    required int light,
+    GameParametersType type = GameParametersType.active,
+  });
 
-  int getFertilizerParameter();
+  int getFertilizerParameter({
+    GameParametersType type = GameParametersType.active,
+  });
 
-  Future<int> setFertilizerParameter(
-    int fertilizer,
-  );
+  Future<int> setFertilizerParameter({
+    required int fertilizer,
+    GameParametersType type = GameParametersType.active,
+  });
 }

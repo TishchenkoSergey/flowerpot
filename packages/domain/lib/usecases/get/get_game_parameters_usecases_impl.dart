@@ -8,16 +8,18 @@ import 'get_game_parameters_usecases.dart';
 @Injectable(as: GetGameParametersUseCases)
 class GetGameParametersUseCasesImpl implements GetGameParametersUseCases {
   GetGameParametersUseCasesImpl(
-      this.repository,
-      );
+    @factoryParam this.type,
+    this.repository,
+  );
 
   final GameParametersRepository repository;
+  final GameParametersType type;
 
   @override
   FlowerpotParametersModel execute() {
-    final water = repository.getWaterParameter();
-    final light = repository.getLightParameter();
-    final fertilizer = repository.getFertilizerParameter();
+    final water = repository.getWaterParameter(type: type);
+    final light = repository.getLightParameter(type: type);
+    final fertilizer = repository.getFertilizerParameter(type: type);
 
     return FlowerpotParametersModel(
       water: water,

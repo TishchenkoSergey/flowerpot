@@ -1,0 +1,4 @@
+enum GameTypeModel {
+  standard,
+  active,
+}

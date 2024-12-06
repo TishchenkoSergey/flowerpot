@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 late GetIt di;
 
 @InjectableInit.microPackage()
-initMicroPackage() {}
+void initMicroPackage() {}
 
 @module
 abstract class RegisterModule {}

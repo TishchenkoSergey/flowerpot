@@ -7,7 +7,7 @@ part 'session_model.freezed.dart';
 abstract class BaseSessionModel {
   SessionStatus? get status;
 
-  FlowerpotParametersModel? get parameters;
+  GameParametersModel? get parameters;
 
   Duration? get startGameTime;
 }
@@ -16,7 +16,7 @@ abstract class BaseSessionModel {
 abstract class SessionModel with _$SessionModel implements BaseSessionModel {
   const factory SessionModel({
     required SessionStatus status,
-    required FlowerpotParametersModel parameters,
+    required GameParametersModel parameters,
     required Duration startGameTime,
   }) = _SessionModel;
 

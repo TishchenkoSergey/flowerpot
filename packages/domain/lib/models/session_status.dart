@@ -1,3 +1,5 @@
+import 'package:collection/collection.dart';
+
 enum SessionStatus {
   init('init'),
   running('running'),

@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$SessionModel {
   SessionStatus get status => throw _privateConstructorUsedError;
-  FlowerpotParametersModel get parameters => throw _privateConstructorUsedError;
+  GameParametersModel get parameters => throw _privateConstructorUsedError;
   Duration get startGameTime => throw _privateConstructorUsedError;
 
   /// Create a copy of SessionModel
@@ -35,8 +35,10 @@ abstract class $SessionModelCopyWith<$Res> {
   @useResult
   $Res call(
       {SessionStatus status,
-      FlowerpotParametersModel parameters,
+      GameParametersModel parameters,
       Duration startGameTime});
+
+  $GameParametersModelCopyWith<$Res> get parameters;
 }
 
 /// @nodoc
@@ -55,7 +57,7 @@ class _$SessionModelCopyWithImpl<$Res, $Val extends SessionModel>
   @override
   $Res call({
     Object? status = null,
-    Object? parameters = freezed,
+    Object? parameters = null,
     Object? startGameTime = null,
   }) {
     return _then(_value.copyWith(
@@ -63,15 +65,25 @@ class _$SessionModelCopyWithImpl<$Res, $Val extends SessionModel>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as SessionStatus,
-      parameters: freezed == parameters
+      parameters: null == parameters
           ? _value.parameters
           : parameters // ignore: cast_nullable_to_non_nullable
-              as FlowerpotParametersModel,
+              as GameParametersModel,
       startGameTime: null == startGameTime
           ? _value.startGameTime
           : startGameTime // ignore: cast_nullable_to_non_nullable
               as Duration,
     ) as $Val);
+  }
+
+  /// Create a copy of SessionModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $GameParametersModelCopyWith<$Res> get parameters {
+    return $GameParametersModelCopyWith<$Res>(_value.parameters, (value) {
+      return _then(_value.copyWith(parameters: value) as $Val);
+    });
   }
 }
 
@@ -85,8 +97,11 @@ abstract class _$$SessionModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {SessionStatus status,
-      FlowerpotParametersModel parameters,
+      GameParametersModel parameters,
       Duration startGameTime});
+
+  @override
+  $GameParametersModelCopyWith<$Res> get parameters;
 }
 
 /// @nodoc
@@ -103,7 +118,7 @@ class __$$SessionModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
-    Object? parameters = freezed,
+    Object? parameters = null,
     Object? startGameTime = null,
   }) {
     return _then(_$SessionModelImpl(
@@ -111,10 +126,10 @@ class __$$SessionModelImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as SessionStatus,
-      parameters: freezed == parameters
+      parameters: null == parameters
           ? _value.parameters
           : parameters // ignore: cast_nullable_to_non_nullable
-              as FlowerpotParametersModel,
+              as GameParametersModel,
       startGameTime: null == startGameTime
           ? _value.startGameTime
           : startGameTime // ignore: cast_nullable_to_non_nullable
@@ -135,7 +150,7 @@ class _$SessionModelImpl extends _SessionModel {
   @override
   final SessionStatus status;
   @override
-  final FlowerpotParametersModel parameters;
+  final GameParametersModel parameters;
   @override
   final Duration startGameTime;
 
@@ -150,15 +165,15 @@ class _$SessionModelImpl extends _SessionModel {
         (other.runtimeType == runtimeType &&
             other is _$SessionModelImpl &&
             (identical(other.status, status) || other.status == status) &&
-            const DeepCollectionEquality()
-                .equals(other.parameters, parameters) &&
+            (identical(other.parameters, parameters) ||
+                other.parameters == parameters) &&
             (identical(other.startGameTime, startGameTime) ||
                 other.startGameTime == startGameTime));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status,
-      const DeepCollectionEquality().hash(parameters), startGameTime);
+  int get hashCode =>
+      Object.hash(runtimeType, status, parameters, startGameTime);
 
   /// Create a copy of SessionModel
   /// with the given fields replaced by the non-null parameter values.
@@ -172,14 +187,14 @@ class _$SessionModelImpl extends _SessionModel {
 abstract class _SessionModel extends SessionModel {
   const factory _SessionModel(
       {required final SessionStatus status,
-      required final FlowerpotParametersModel parameters,
+      required final GameParametersModel parameters,
       required final Duration startGameTime}) = _$SessionModelImpl;
   const _SessionModel._() : super._();
 
   @override
   SessionStatus get status;
   @override
-  FlowerpotParametersModel get parameters;
+  GameParametersModel get parameters;
   @override
   Duration get startGameTime;
 

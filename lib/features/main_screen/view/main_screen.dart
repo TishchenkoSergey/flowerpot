@@ -58,7 +58,7 @@ class MainScreen extends StatelessWidget {
                   ),
                   if (state.continueAvailability)
                     CustomButton(
-                      title: 'Continue',
+                      title: context.l10n.feature_welcome_button_continue,
                       onPressed: () => context.goNamed(Routes.gamePlay.name),
                     ),
                 ],

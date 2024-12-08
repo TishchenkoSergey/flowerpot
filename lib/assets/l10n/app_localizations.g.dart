@@ -117,6 +117,12 @@ abstract class AppLocalizations {
   /// **'New game'**
   String get feature_welcome_button_new_game;
 
+  /// No description provided for @feature_welcome_button_continue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get feature_welcome_button_continue;
+
   /// No description provided for @feature_interactions_app_bar.
   ///
   /// In en, this message translates to:

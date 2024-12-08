@@ -19,6 +19,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get feature_welcome_button_new_game => 'New game';
 
   @override
+  String get feature_welcome_button_continue => 'Continue';
+
+  @override
   String get feature_interactions_app_bar => 'Interactions';
 
   @override

@@ -37,7 +37,7 @@ class AppRoute {
             return MainScreenCubit(
               createGameSessionUseCase: serviceLocator.get(param1: GameTypeModel.active),
               getAvailabilityOfSessionsUseCase: serviceLocator.get(),
-              getGameParametersUseCases: serviceLocator.get(param1: GameTypeModel.active),
+              getGameParametersUseCases: serviceLocator.get(param1: GameTypeModel.standard),
             );
           },
           child: const MainScreen(),
@@ -52,7 +52,12 @@ class AppRoute {
       path: '/${Routes.gamePlay.name}',
       pageBuilder: (context, state) => CupertinoPage(
         child: BlocProvider(
-          create: (context) => GamePlayCubit(),
+          create: (context) {
+            return GamePlayCubit(
+              createGameSessionUseCase: serviceLocator.get(param1: GameTypeModel.active),
+              getGameParametersUseCases: serviceLocator.get(param1: GameTypeModel.active),
+            );
+          },
           child: const GamePlayScreen(),
         ),
       ),

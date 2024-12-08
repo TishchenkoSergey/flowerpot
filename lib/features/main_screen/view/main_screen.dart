@@ -51,7 +51,10 @@ class MainScreen extends StatelessWidget {
                   const SizedBox(height: 100),
                   CustomButton(
                     title: context.l10n.feature_welcome_button_new_game,
-                    onPressed: () => context.read<MainScreenCubit>().setSession(),
+                    onPressed: () => {
+                      context.read<MainScreenCubit>().setNewSession(),
+                      context.goNamed(Routes.gamePlay.name),
+                    },
                   ),
                   if (state.continueAvailability)
                     CustomButton(

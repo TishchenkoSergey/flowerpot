@@ -17,8 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$MainScreenState {
   bool get continueAvailability => throw _privateConstructorUsedError;
-  GameParametersModel? get parameters =>
-      throw _privateConstructorUsedError;
   Object? get error => throw _privateConstructorUsedError;
 
   /// Create a copy of MainScreenState
@@ -34,12 +32,7 @@ abstract class $MainScreenStateCopyWith<$Res> {
           MainScreenState value, $Res Function(MainScreenState) then) =
       _$MainScreenStateCopyWithImpl<$Res, MainScreenState>;
   @useResult
-  $Res call(
-      {bool continueAvailability,
-        GameParametersModel? parameters,
-      Object? error});
-
-  $GameParametersModelCopyWith<$Res>? get parameters;
+  $Res call({bool continueAvailability, Object? error});
 }
 
 /// @nodoc
@@ -58,7 +51,6 @@ class _$MainScreenStateCopyWithImpl<$Res, $Val extends MainScreenState>
   @override
   $Res call({
     Object? continueAvailability = null,
-    Object? parameters = freezed,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
@@ -66,26 +58,8 @@ class _$MainScreenStateCopyWithImpl<$Res, $Val extends MainScreenState>
           ? _value.continueAvailability
           : continueAvailability // ignore: cast_nullable_to_non_nullable
               as bool,
-      parameters: freezed == parameters
-          ? _value.parameters
-          : parameters // ignore: cast_nullable_to_non_nullable
-              as GameParametersModel?,
       error: freezed == error ? _value.error : error,
     ) as $Val);
-  }
-
-  /// Create a copy of MainScreenState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $GameParametersModelCopyWith<$Res>? get parameters {
-    if (_value.parameters == null) {
-      return null;
-    }
-
-    return $GameParametersModelCopyWith<$Res>(_value.parameters!, (value) {
-      return _then(_value.copyWith(parameters: value) as $Val);
-    });
   }
 }
 
@@ -97,13 +71,7 @@ abstract class _$$MainScreenStateImplCopyWith<$Res>
       __$$MainScreenStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool continueAvailability,
-        GameParametersModel? parameters,
-      Object? error});
-
-  @override
-  $GameParametersModelCopyWith<$Res>? get parameters;
+  $Res call({bool continueAvailability, Object? error});
 }
 
 /// @nodoc
@@ -120,7 +88,6 @@ class __$$MainScreenStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? continueAvailability = null,
-    Object? parameters = freezed,
     Object? error = freezed,
   }) {
     return _then(_$MainScreenStateImpl(
@@ -128,10 +95,6 @@ class __$$MainScreenStateImplCopyWithImpl<$Res>
           ? _value.continueAvailability
           : continueAvailability // ignore: cast_nullable_to_non_nullable
               as bool,
-      parameters: freezed == parameters
-          ? _value.parameters
-          : parameters // ignore: cast_nullable_to_non_nullable
-              as GameParametersModel?,
       error: freezed == error ? _value.error : error,
     ));
   }
@@ -140,21 +103,18 @@ class __$$MainScreenStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MainScreenStateImpl extends _MainScreenState {
-  const _$MainScreenStateImpl(
-      {this.continueAvailability = false, this.parameters, this.error})
+  const _$MainScreenStateImpl({this.continueAvailability = false, this.error})
       : super._();
 
   @override
   @JsonKey()
   final bool continueAvailability;
   @override
-  final GameParametersModel? parameters;
-  @override
   final Object? error;
 
   @override
   String toString() {
-    return 'MainScreenState(continueAvailability: $continueAvailability, parameters: $parameters, error: $error)';
+    return 'MainScreenState(continueAvailability: $continueAvailability, error: $error)';
   }
 
   @override
@@ -164,13 +124,11 @@ class _$MainScreenStateImpl extends _MainScreenState {
             other is _$MainScreenStateImpl &&
             (identical(other.continueAvailability, continueAvailability) ||
                 other.continueAvailability == continueAvailability) &&
-            (identical(other.parameters, parameters) ||
-                other.parameters == parameters) &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, continueAvailability, parameters,
+  int get hashCode => Object.hash(runtimeType, continueAvailability,
       const DeepCollectionEquality().hash(error));
 
   /// Create a copy of MainScreenState
@@ -186,14 +144,11 @@ class _$MainScreenStateImpl extends _MainScreenState {
 abstract class _MainScreenState extends MainScreenState {
   const factory _MainScreenState(
       {final bool continueAvailability,
-      final GameParametersModel? parameters,
       final Object? error}) = _$MainScreenStateImpl;
   const _MainScreenState._() : super._();
 
   @override
   bool get continueAvailability;
-  @override
-  GameParametersModel? get parameters;
   @override
   Object? get error;
 

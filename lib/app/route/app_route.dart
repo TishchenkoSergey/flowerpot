@@ -68,8 +68,16 @@ class AppRoute {
     return GoRoute(
       name: Routes.interactions.name,
       path: '/${Routes.interactions.name}',
-      pageBuilder: (context, state) => const CupertinoPage(
-        child: InteractionsScreen(),
+      pageBuilder: (context, state) => CupertinoPage(
+        child: BlocProvider(
+          create: (context) {
+            return InteractionsCubit(
+              getGameParametersUseCases: serviceLocator.get(param1: GameTypeModel.active),
+              updateGameSessionUsecase: serviceLocator.get(param1: GameTypeModel.active),
+            );
+          },
+          child: const InteractionsScreen(),
+        ),
       ),
     );
   }

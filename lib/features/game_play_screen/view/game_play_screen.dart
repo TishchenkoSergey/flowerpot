@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:flowerpot/assets/assets.dart';
 import 'package:flowerpot/app/route/route.dart';
+import 'package:flowerpot/features/features.dart';
 
 import '../widgets/widgets.dart';
 
@@ -22,27 +25,34 @@ class GamePlayScreen extends StatelessWidget {
           ),
         ),
         child: SafeArea(
-          child: Column(
-            children: [
-              InkWell(
-                onTap: () => context.goNamed(Routes.interactions.name),
-                child: Column(
-                  children: [
-                    GradientStatus(
-                      image: Assets.icons.water.provider(),
+          child: BlocBuilder<GamePlayCubit, GamePlayState>(
+            builder: (context, state) {
+              return Column(
+                children: [
+                  InkWell(
+                    onTap: () => context.goNamed(Routes.interactions.name),
+                    child: Column(
+                      children: [
+                        GradientStatus(
+                          image: Assets.icons.water.provider(),
+                          value: state.parameters!.water,
+                        ),
+                        const SizedBox(height: 8),
+                        GradientStatus(
+                          image: Assets.icons.light.provider(),
+                          value: state.parameters!.light,
+                        ),
+                        const SizedBox(height: 8),
+                        GradientStatus(
+                          image: Assets.icons.fertilizer.provider(),
+                          value: state.parameters!.fertilizer,
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 8),
-                    GradientStatus(
-                      image: Assets.icons.light.provider(),
-                    ),
-                    const SizedBox(height: 8),
-                    GradientStatus(
-                      image: Assets.icons.fertilizer.provider(),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+                  ),
+                ],
+              );
+            },
           ),
         ),
       ),

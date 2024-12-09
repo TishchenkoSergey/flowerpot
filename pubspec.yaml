@@ -23,6 +23,7 @@ dependencies:
   flutter_svg: ^2.0.11
   l10n_flutter: ^1.0.7
   shared_preferences: ^2.3.2
+  freezed_annotation: ^2.3.1
 
   domain:
     path: ./packages/domain

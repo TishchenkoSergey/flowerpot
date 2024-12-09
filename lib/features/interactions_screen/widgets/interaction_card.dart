@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
+import 'package:flowerpot/assets/l10n/l10n.dart';
+
 class InteractionCard extends StatelessWidget {
   const InteractionCard({
     required this.onPressed,
     required this.image,
     required this.title,
-    required this.comment,
-    this.time = const Duration(minutes: 5),
+    required this.addPoint,
     this.iconSize = 48.0,
     super.key,
   });
@@ -14,12 +15,13 @@ class InteractionCard extends StatelessWidget {
   final VoidCallback? onPressed;
   final ImageProvider image;
   final String title;
-  final String comment;
-  final Duration time;
+  final int addPoint;
   final double iconSize;
 
   @override
   Widget build(BuildContext context) {
+    final time = Duration(minutes: addPoint);
+
     return Card(
       clipBehavior: Clip.antiAlias,
       child: InkWell(
@@ -56,8 +58,7 @@ class InteractionCard extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                comment,
-                style: const TextStyle(fontSize: 14),
+                context.l10n.feature_interactions_card_comment(addPoint),
               ),
               const SizedBox(height: 8),
               Text(

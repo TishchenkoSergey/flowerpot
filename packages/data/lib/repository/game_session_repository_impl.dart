@@ -36,6 +36,30 @@ class GameSessionRepositoryImpl implements SessionRepository {
   }
 
   @override
+  Future<SessionModel> updateSession({
+    SessionStatus? status,
+    GameParametersModel? parameters,
+    Duration? startGameTime,
+  }) async {
+    final session = await getLastSession();
+    final status = await gameStatusRepository.setSessionStatus(status: session.status);
+    final startGame = await gameStartTimeRepository.setStartGame(time: startGameTime ?? session.startGameTime);
+    final newParameters = parameters == null
+        ? session.parameters
+        : GameParametersModel(
+            water: await gameParametersRepository.setWaterParameter(water: parameters.water),
+            light: await gameParametersRepository.setLightParameter(light: parameters.light),
+            fertilizer: await gameParametersRepository.setFertilizerParameter(fertilizer: parameters.fertilizer),
+          );
+
+    return SessionModel(
+      status: status,
+      parameters: newParameters,
+      startGameTime: startGame,
+    );
+  }
+
+  @override
   Future<SessionModel> getLastSession() async {
     final sessionStatus = gameStatusRepository.getSessionStatus();
     final startGame = gameStartTimeRepository.getStartGame();

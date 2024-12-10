@@ -21,7 +21,7 @@ class CreateGameSessionImpl implements CreateGameSessionUseCase {
   }) async {
 
     final session = await sessionRepository.setupSession(
-      SessionModel(
+      session: SessionModel(
         parameters: parameters,
         status: status,
         startGameTime: startGameTime,

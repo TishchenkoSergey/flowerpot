@@ -19,13 +19,17 @@ class GameSessionRepositoryImpl implements SessionRepository {
   final GameStartTimeRepository gameStartTimeRepository;
 
   @override
-  Future<SessionModel> setupSession(BaseSessionModel session) async {
+  Future<SessionModel> setupSession({
+    required BaseSessionModel session,
+    GameTypeModel type = GameTypeModel.active,
+  }) async {
     final status = await gameStatusRepository.setSessionStatus(status: session.status!);
     final startGame = await gameStartTimeRepository.setStartGame(time: session.startGameTime!);
     final parameters = GameParametersModel(
-      water: await gameParametersRepository.setWaterParameter(water: session.parameters!.water),
-      light: await gameParametersRepository.setLightParameter(light: session.parameters!.light),
-      fertilizer: await gameParametersRepository.setFertilizerParameter(fertilizer: session.parameters!.fertilizer),
+      water: await gameParametersRepository.setWaterParameter(water: session.parameters!.water, type: type),
+      light: await gameParametersRepository.setLightParameter(light: session.parameters!.light, type: type),
+      fertilizer:
+          await gameParametersRepository.setFertilizerParameter(fertilizer: session.parameters!.fertilizer, type: type),
     );
 
     return SessionModel(
@@ -40,6 +44,7 @@ class GameSessionRepositoryImpl implements SessionRepository {
     SessionStatus? status,
     GameParametersModel? parameters,
     Duration? startGameTime,
+    GameTypeModel type = GameTypeModel.active,
   }) async {
     final session = await getLastSession();
     final status = await gameStatusRepository.setSessionStatus(status: session.status);
@@ -47,9 +52,18 @@ class GameSessionRepositoryImpl implements SessionRepository {
     final newParameters = parameters == null
         ? session.parameters
         : GameParametersModel(
-            water: await gameParametersRepository.setWaterParameter(water: parameters.water),
-            light: await gameParametersRepository.setLightParameter(light: parameters.light),
-            fertilizer: await gameParametersRepository.setFertilizerParameter(fertilizer: parameters.fertilizer),
+            water: await gameParametersRepository.setWaterParameter(
+              water: parameters.water,
+              type: type,
+            ),
+            light: await gameParametersRepository.setLightParameter(
+              light: parameters.light,
+              type: type,
+            ),
+            fertilizer: await gameParametersRepository.setFertilizerParameter(
+              fertilizer: parameters.fertilizer,
+              type: type,
+            ),
           );
 
     return SessionModel(
@@ -60,13 +74,15 @@ class GameSessionRepositoryImpl implements SessionRepository {
   }
 
   @override
-  Future<SessionModel> getLastSession() async {
+  Future<SessionModel> getLastSession({
+    GameTypeModel type = GameTypeModel.active,
+  }) async {
     final sessionStatus = gameStatusRepository.getSessionStatus();
     final startGame = gameStartTimeRepository.getStartGame();
     final parameters = GameParametersModel(
-      water: gameParametersRepository.getWaterParameter(),
-      light: gameParametersRepository.getLightParameter(),
-      fertilizer: gameParametersRepository.getFertilizerParameter(),
+      water: gameParametersRepository.getWaterParameter(type: type),
+      light: gameParametersRepository.getLightParameter(type: type),
+      fertilizer: gameParametersRepository.getFertilizerParameter(type: type),
     );
 
     return SessionModel(

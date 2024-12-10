@@ -17,7 +17,7 @@ class GameStatusRepositoryImpl implements GameStatusRepository {
     if (status == null) {
       return SessionStatus.init;
     }
-    return status as SessionStatus;
+    return SessionStatus.fromValue(status)!;
   }
 
   @override

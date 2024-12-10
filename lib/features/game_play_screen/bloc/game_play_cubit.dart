@@ -10,13 +10,13 @@ part 'game_play_cubit.freezed.dart';
 class GamePlayCubit extends Cubit<GamePlayState> {
   GamePlayCubit({
     required this.getGameParametersUseCases,
-    required this.createGameSessionUseCase,
+    required this.updateGameSessionUsecase,
   }) : super(const GamePlayState()) {
     init();
   }
 
   final GetGameParametersUseCases getGameParametersUseCases;
-  final CreateGameSessionUseCase createGameSessionUseCase;
+  final UpdateGameSessionUsecase updateGameSessionUsecase;
 
   Future<void> init() async {
     final parameters = getGameParametersUseCases.execute();
@@ -27,13 +27,15 @@ class GamePlayCubit extends Cubit<GamePlayState> {
   Future<void> setupGame() async {
     final now = DateTime.now();
     final duration = Duration(
+      days: now.day,
       hours: now.hour,
       minutes: now.minute,
       seconds: now.second,
+      milliseconds: now.millisecond,
     );
 
-    await createGameSessionUseCase.execute(
-      parameters: state.parameters!,
+    await updateGameSessionUsecase.execute(
+      parameters: state.parameters,
       status: SessionStatus.running,
       startGameTime: duration,
     );

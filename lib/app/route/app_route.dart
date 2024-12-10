@@ -54,7 +54,7 @@ class AppRoute {
         child: BlocProvider(
           create: (context) {
             return GamePlayCubit(
-              createGameSessionUseCase: serviceLocator.get(param1: GameTypeModel.active),
+              updateGameSessionUsecase: serviceLocator.get(param1: GameTypeModel.active),
               getGameParametersUseCases: serviceLocator.get(param1: GameTypeModel.active),
             );
           },

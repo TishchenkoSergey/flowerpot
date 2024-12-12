@@ -10,5 +10,7 @@ linter:
     require_trailing_commas: false
 
 analyzer:
+  errors:
+    one_member_abstracts: ignore
   exclude:
     - "**/*.g.dart"

@@ -6,6 +6,8 @@ import 'package:flowerpot/assets/assets.dart';
 import 'package:flowerpot/app/route/route.dart';
 import 'package:flowerpot/features/features.dart';
 
+import 'package:domain/domain.dart';
+
 import '../widgets/widgets.dart';
 
 class GamePlayScreen extends StatelessWidget {
@@ -27,6 +29,17 @@ class GamePlayScreen extends StatelessWidget {
         child: SafeArea(
           child: BlocBuilder<GamePlayCubit, GamePlayState>(
             builder: (context, state) {
+              if (state.status == SessionStatus.init) {
+                return InfoDialog(
+                  title: 'Start game?',
+                  description: 'lorem ipsum',
+                  onPressedNegative: () => context.goNamed(Routes.mainScreen.name),
+                  onPressedPositive: context.read<GamePlayCubit>().setupGame,
+                  positiveTitleButton: 'GO!',
+                  negativeTitleButton: 'Back',
+                );
+              }
+
               return Column(
                 children: [
                   InkWell(

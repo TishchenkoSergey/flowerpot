@@ -11,17 +11,24 @@ class GamePlayCubit extends Cubit<GamePlayState> {
   GamePlayCubit({
     required this.getGameParametersUseCases,
     required this.updateGameSessionUsecase,
+    required this.getGameStartTimeUsecase,
+    required this.getSessionStatusUsecase,
   }) : super(const GamePlayState()) {
     init();
   }
 
   final GetGameParametersUseCases getGameParametersUseCases;
   final UpdateGameSessionUsecase updateGameSessionUsecase;
+  final GetGameStartTimeUsecase getGameStartTimeUsecase;
+  final GetSessionStatusUsecase getSessionStatusUsecase;
 
   Future<void> init() async {
+    final status = await getSessionStatusUsecase.execute();
     final parameters = getGameParametersUseCases.execute();
-    emit(state.copyWith(parameters: parameters));
-    await setupGame();
+    emit(state.copyWith(
+      parameters: parameters,
+      status: status,
+    ));
   }
 
   Future<void> setupGame() async {
@@ -39,5 +46,6 @@ class GamePlayCubit extends Cubit<GamePlayState> {
       status: SessionStatus.running,
       startGameTime: duration,
     );
+    emit(state.copyWith(status: SessionStatus.running));
   }
 }

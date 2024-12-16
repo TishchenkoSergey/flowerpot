@@ -22,8 +22,6 @@ class InteractionsCubit extends Cubit<InteractionsState> {
   final GetGameParametersUseCases getGameParametersUseCases;
   final UpdateGameSessionUsecase updateGameSessionUsecase;
 
-  int Function(int parameter) checkParameter = (int parameter) => parameter < 100 ? parameter : 100;
-
   Future<void> init() async {
     final paramsModel = getGameParametersUseCases.execute();
 
@@ -42,9 +40,9 @@ class InteractionsCubit extends Cubit<InteractionsState> {
     emit(
       InteractionsState(
         parameters: state.parameters.copyWith(
-          water: checkParameter(changedWater),
-          light: checkParameter(changedLight),
-          fertilizer: checkParameter(changedFertilizer),
+          water: changedWater,
+          light: changedLight,
+          fertilizer: changedFertilizer,
         ),
       ),
     );

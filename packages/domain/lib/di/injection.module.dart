@@ -6,6 +6,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i687;
 
+import 'package:domain/domain.dart' as _i494;
 import 'package:domain/models/models.dart' as _i907;
 import 'package:domain/repository/repository.dart' as _i174;
 import 'package:domain/usecases/create/create_game_session_usecase.dart'
@@ -16,6 +17,8 @@ import 'package:domain/usecases/get/get_availability_of_sessions_usecase.dart'
     as _i224;
 import 'package:domain/usecases/get/get_availability_of_sessions_usecase_impl.dart'
     as _i577;
+import 'package:domain/usecases/get/get_calculated_parameters_usecase_impl.dart'
+    as _i632;
 import 'package:domain/usecases/get/get_game_parameters_usecases.dart' as _i389;
 import 'package:domain/usecases/get/get_game_parameters_usecases_impl.dart'
     as _i2;
@@ -46,6 +49,9 @@ class DomainPackageModule extends _i526.MicroPackageModule {
           type,
           gh<_i174.GameParametersRepository>(),
         ));
+    gh.factory<_i494.GetCalculatedParametersUsecase>(() =>
+        _i632.GetCalculatedParametersUsecaseImpl(
+            gh<_i494.SessionRepository>()));
     gh.factory<_i224.GetAvailabilityOfSessionsUseCase>(() =>
         _i577.GetAvailabilityOfSessionsUseCaseImpl(
             gh<_i174.SessionRepository>()));

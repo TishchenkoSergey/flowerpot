@@ -32,11 +32,20 @@ class GamePlayScreen extends StatelessWidget {
               if (state.status == SessionStatus.init) {
                 return InfoDialog(
                   title: 'Start game?',
-                  description: 'lorem ipsum',
+                  description: 'Be careful and this beautiful flower will always be with you.',
                   onPressedNegative: () => context.goNamed(Routes.mainScreen.name),
                   onPressedPositive: context.read<GamePlayCubit>().setupGame,
                   positiveTitleButton: 'GO!',
                   negativeTitleButton: 'Back',
+                );
+              }
+
+              if (state.status == SessionStatus.complete) {
+                return InfoDialog(
+                  title: 'Game over',
+                  description: "You have taken good care of your flower.\nI'm sure it will be even better next time",
+                  onPressedPositive: () => context.goNamed(Routes.mainScreen.name),
+                  positiveTitleButton: 'Try again',
                 );
               }
 

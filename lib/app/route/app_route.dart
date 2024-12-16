@@ -56,7 +56,7 @@ class AppRoute {
             return GamePlayCubit(
               updateGameSessionUsecase: serviceLocator.get(param1: GameTypeModel.active),
               getGameParametersUseCases: serviceLocator.get(param1: GameTypeModel.active),
-              getGameStartTimeUsecase: serviceLocator.get(),
+              getCalculatedParametersUsecase: serviceLocator.get(),
               getSessionStatusUsecase: serviceLocator.get(),
             );
           },

@@ -206,6 +206,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'+{point} points'**
   String feature_interactions_card_comment(Object point);
+
+  /// No description provided for @feature_game_play_new_game_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Start game?'**
+  String get feature_game_play_new_game_title;
+
+  /// No description provided for @feature_game_play_new_game_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Be careful and this beautiful flower will always be with you.'**
+  String get feature_game_play_new_game_description;
+
+  /// No description provided for @feature_game_play_new_game_positive_button.
+  ///
+  /// In en, this message translates to:
+  /// **'GO!'**
+  String get feature_game_play_new_game_positive_button;
+
+  /// No description provided for @feature_game_play_new_game_negative_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get feature_game_play_new_game_negative_button;
+
+  /// No description provided for @feature_game_play_end_game_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Game over'**
+  String get feature_game_play_end_game_title;
+
+  /// No description provided for @feature_game_play_end_game_description.
+  ///
+  /// In en, this message translates to:
+  /// **'You have taken good care of your flower.\nI\'m sure it will be even better next time'**
+  String get feature_game_play_end_game_description;
+
+  /// No description provided for @feature_game_play_end_game_positive_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get feature_game_play_end_game_positive_button;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

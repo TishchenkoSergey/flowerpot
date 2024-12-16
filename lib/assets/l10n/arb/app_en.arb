@@ -18,5 +18,12 @@
     "feature_interactions_card_fertilizer_title2": "Compost",
     "feature_interactions_card_fertilizer_title3": "Nitrogenous",
     "feature_interactions_card_fertilizer_title4": "Phosphorous",
-    "feature_interactions_card_comment": "+{point} points"
+    "feature_interactions_card_comment": "+{point} points",
+    "feature_game_play_new_game_title": "Start game?",
+    "feature_game_play_new_game_description": "Be careful and this beautiful flower will always be with you.",
+    "feature_game_play_new_game_positive_button": "GO!",
+    "feature_game_play_new_game_negative_button": "Back",
+    "feature_game_play_end_game_title": "Game over",
+    "feature_game_play_end_game_description": "You have taken good care of your flower.\nI'm sure it will be even better next time",
+    "feature_game_play_end_game_positive_button": "Try again"
 }

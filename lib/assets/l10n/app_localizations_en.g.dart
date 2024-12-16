@@ -64,4 +64,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String feature_interactions_card_comment(Object point) {
     return '+$point points';
   }
+
+  @override
+  String get feature_game_play_new_game_title => 'Start game?';
+
+  @override
+  String get feature_game_play_new_game_description => 'Be careful and this beautiful flower will always be with you.';
+
+  @override
+  String get feature_game_play_new_game_positive_button => 'GO!';
+
+  @override
+  String get feature_game_play_new_game_negative_button => 'Back';
+
+  @override
+  String get feature_game_play_end_game_title => 'Game over';
+
+  @override
+  String get feature_game_play_end_game_description => 'You have taken good care of your flower.\nI\'m sure it will be even better next time';
+
+  @override
+  String get feature_game_play_end_game_positive_button => 'Try again';
 }

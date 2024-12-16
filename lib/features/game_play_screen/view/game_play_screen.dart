@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flowerpot/assets/assets.dart';
+import 'package:flowerpot/assets/l10n/l10n.dart';
 import 'package:flowerpot/app/route/route.dart';
 import 'package:flowerpot/features/features.dart';
 
@@ -31,21 +32,21 @@ class GamePlayScreen extends StatelessWidget {
             builder: (context, state) {
               if (state.status == SessionStatus.init) {
                 return InfoDialog(
-                  title: 'Start game?',
-                  description: 'Be careful and this beautiful flower will always be with you.',
+                  title: context.l10n.feature_game_play_new_game_title,
+                  description: context.l10n.feature_game_play_new_game_description,
                   onPressedNegative: () => context.goNamed(Routes.mainScreen.name),
                   onPressedPositive: context.read<GamePlayCubit>().setupGame,
-                  positiveTitleButton: 'GO!',
-                  negativeTitleButton: 'Back',
+                  positiveTitleButton: context.l10n.feature_game_play_new_game_positive_button,
+                  negativeTitleButton: context.l10n.feature_game_play_new_game_negative_button,
                 );
               }
 
               if (state.status == SessionStatus.complete) {
                 return InfoDialog(
-                  title: 'Game over',
-                  description: "You have taken good care of your flower.\nI'm sure it will be even better next time",
+                  title: context.l10n.feature_game_play_end_game_title,
+                  description: context.l10n.feature_game_play_end_game_description,
                   onPressedPositive: () => context.goNamed(Routes.mainScreen.name),
-                  positiveTitleButton: 'Try again',
+                  positiveTitleButton: context.l10n.feature_game_play_end_game_positive_button,
                 );
               }
 

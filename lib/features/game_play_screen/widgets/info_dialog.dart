@@ -34,34 +34,39 @@ class InfoDialog extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 8),
-            Text(
-              description!,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 8),
+            if (description != null) ...[
+              Text(
+                description!,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 8),
+            ],
             IntrinsicWidth(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    onPressed: onPressedNegative,
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4),
+                  if (onPressedNegative != null) ...[
+                    ElevatedButton(
+                      onPressed: onPressedNegative,
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4),
+                        ),
                       ),
+                      child: Text(negativeTitleButton!),
                     ),
-                    child: Text(negativeTitleButton!),
-                  ),
-                  const SizedBox(width: 8),
-                  ElevatedButton(
-                    onPressed: onPressedPositive,
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4),
+                    const SizedBox(width: 8),
+                  ],
+                  if (positiveTitleButton != null)
+                    ElevatedButton(
+                      onPressed: onPressedPositive,
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4),
+                        ),
                       ),
+                      child: Text(positiveTitleButton!),
                     ),
-                    child: Text(positiveTitleButton!),
-                  ),
                 ],
               ),
             )

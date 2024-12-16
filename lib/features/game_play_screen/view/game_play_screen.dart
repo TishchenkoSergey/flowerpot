@@ -41,24 +41,38 @@ class GamePlayScreen extends StatelessWidget {
               }
 
               return Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  InkWell(
-                    onTap: () => context.goNamed(Routes.interactions.name),
-                    child: Column(
+                  Column(
+                    children: [
+                      GradientStatus(
+                        image: Assets.icons.water.provider(),
+                        value: state.parameters!.water,
+                      ),
+                      const SizedBox(height: 8),
+                      GradientStatus(
+                        image: Assets.icons.light.provider(),
+                        value: state.parameters!.light,
+                      ),
+                      const SizedBox(height: 8),
+                      GradientStatus(
+                        image: Assets.icons.fertilizer.provider(),
+                        value: state.parameters!.fertilizer,
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(24),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        GradientStatus(
-                          image: Assets.icons.water.provider(),
-                          value: state.parameters!.water,
+                        CircleButton(
+                          child: const Icon(Icons.event_note_rounded),
+                          onPressed: () => context.goNamed(Routes.mainScreen.name),
                         ),
-                        const SizedBox(height: 8),
-                        GradientStatus(
-                          image: Assets.icons.light.provider(),
-                          value: state.parameters!.light,
-                        ),
-                        const SizedBox(height: 8),
-                        GradientStatus(
-                          image: Assets.icons.fertilizer.provider(),
-                          value: state.parameters!.fertilizer,
+                        CircleButton(
+                          child: const Icon(Icons.shopping_basket_outlined),
+                          onPressed: () => context.goNamed(Routes.interactions.name),
                         ),
                       ],
                     ),

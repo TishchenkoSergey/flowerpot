@@ -16,4 +16,6 @@ abstract interface class SessionRepository {
   Future<SessionModel> getLastSession({
     GameTypeModel type = GameTypeModel.active,
   });
+
+  Future<bool> markActiveSession(bool sessionMark);
 }

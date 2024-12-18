@@ -11,12 +11,14 @@ class GameSessionRepositoryImpl implements SessionRepository {
     this.gameParametersRepository,
     this.gameStatusRepository,
     this.gameStartTimeRepository,
+    this.gameActivityRepository,
   );
 
   final SharedPreferences sharedPreferences;
   final GameParametersRepository gameParametersRepository;
   final GameStatusRepository gameStatusRepository;
   final GameStartTimeRepository gameStartTimeRepository;
+  final GameActivityRepository gameActivityRepository;
 
   @override
   Future<SessionModel> setupSession({
@@ -90,5 +92,10 @@ class GameSessionRepositoryImpl implements SessionRepository {
       parameters: parameters,
       startGameTime: startGame,
     );
+  }
+
+  @override
+  Future<bool> markActiveSession(bool sessionMark) {
+    return gameActivityRepository.setSessionActivity(sessionMark);
   }
 }

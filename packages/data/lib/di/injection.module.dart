@@ -7,6 +7,7 @@
 import 'dart:async' as _i687;
 
 import 'package:data/di/injection.dart' as _i237;
+import 'package:data/repository/game_activity_repository_impl.dart' as _i426;
 import 'package:data/repository/game_parameters_repository_impl.dart' as _i411;
 import 'package:data/repository/game_session_repository_impl.dart' as _i798;
 import 'package:data/repository/game_start_time_repository_impl.dart' as _i112;
@@ -30,11 +31,14 @@ class DataPackageModule extends _i526.MicroPackageModule {
         () => _i112.GameStartTimeRepositoryImpl(gh<_i460.SharedPreferences>()));
     gh.factory<_i494.GameStatusRepository>(
         () => _i1026.GameStatusRepositoryImpl(gh<_i460.SharedPreferences>()));
+    gh.factory<_i494.GameActivityRepository>(
+        () => _i426.GameActivityRepositoryImpl(gh<_i460.SharedPreferences>()));
     gh.factory<_i494.SessionRepository>(() => _i798.GameSessionRepositoryImpl(
           gh<_i460.SharedPreferences>(),
           gh<_i494.GameParametersRepository>(),
           gh<_i494.GameStatusRepository>(),
           gh<_i494.GameStartTimeRepository>(),
+          gh<_i494.GameActivityRepository>(),
         ));
   }
 }

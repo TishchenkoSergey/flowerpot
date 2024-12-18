@@ -14,57 +14,26 @@ class GamePlayCubit extends Cubit<GamePlayState> {
     required this.getCalculatedParametersUsecase,
     required this.updateGameSessionUsecase,
     required this.getSessionStatusUsecase,
+    required this.createGameSessionUseCase,
+    required this.updateAvailabilityOfSessionsUsecase,
   }) : super(const GamePlayState()) {
-    init();
+    _init();
   }
 
   final GetGameParametersUseCases getGameParametersUseCases;
   final UpdateGameSessionUsecase updateGameSessionUsecase;
   final GetCalculatedParametersUsecase getCalculatedParametersUsecase;
   final GetSessionStatusUsecase getSessionStatusUsecase;
+  final CreateGameSessionUseCase createGameSessionUseCase;
+  final UpdateAvailabilityOfSessionsUsecase updateAvailabilityOfSessionsUsecase;
 
-  bool inRange(int value) => value > 0 && value < 100;
-
-  Future<void> init() async {
-    final status = await getSessionStatusUsecase.execute();
-    final parameters = status.value == 'running'
-        ? await getCalculatedParametersUsecase.execute()
-        : getGameParametersUseCases.execute();
-    emit(state.copyWith(
-      parameters: parameters,
-      status: status,
-    ));
-    await updateParameters();
-  }
-
-  Future<void> updateParameters() async {
-    if (state.status.value == 'running') {
-      Timer.periodic(
-        const Duration(seconds: 1),
-        (Timer timer) async {
-          final parameters = await getCalculatedParametersUsecase.execute();
-          if (inRange(parameters.water) ||
-              inRange(parameters.light) ||
-              inRange(parameters.fertilizer)) {
-            emit(state.copyWith(
-              parameters: parameters,
-            ));
-          } else {
-            timer.cancel();
-            emit(state.copyWith(
-              parameters: parameters,
-              status: SessionStatus.complete,
-            ));
-            await updateGameSessionUsecase.execute(
-              status: SessionStatus.complete,
-            );
-          }
-        },
-      );
-    }
+  Future<void> _init() async {
+    await _setupActualSession();
+    await _updateParameters();
   }
 
   Future<void> setupGame() async {
+    final parameters = getGameParametersUseCases.execute();
     final now = DateTime.now();
     final duration = Duration(
       days: now.day,
@@ -72,14 +41,58 @@ class GamePlayCubit extends Cubit<GamePlayState> {
       minutes: now.minute,
       seconds: now.second,
     );
-
-    await updateGameSessionUsecase.execute(
-      status: SessionStatus.running,
+    await createGameSessionUseCase.execute(
+      parameters: parameters,
+      status: SessionStatus.init,
       startGameTime: duration,
     );
+    await _setNewStatus(SessionStatus.running);
+    await _updateParameters();
+  }
+
+  Future<void> _setupActualSession() async {
+    final status = await getSessionStatusUsecase.execute();
+    final parameters = status == SessionStatus.running
+        ? await getCalculatedParametersUsecase.execute()
+        : getGameParametersUseCases.execute();
+    if (parameters.allInRange()) {
+      emit(state.copyWith(
+        parameters: parameters,
+        status: status,
+      ));
+    } else {
+      await _setNewStatus(SessionStatus.complete);
+    }
+  }
+
+  Future<void> _updateParameters() async {
+    if (state.status == SessionStatus.running) {
+      Timer.periodic(
+        const Duration(seconds: 1),
+            (Timer timer) async {
+          final parameters = await getCalculatedParametersUsecase.execute();
+          if (parameters.allInRange()) {
+            emit(state.copyWith(
+              parameters: parameters,
+            ));
+          } else {
+            timer.cancel();
+            await _setNewStatus(SessionStatus.complete);
+          }
+        },
+      );
+    }
+  }
+
+  Future<void> _setNewStatus(SessionStatus status) async {
+    if (status == SessionStatus.complete) {
+      await updateAvailabilityOfSessionsUsecase.execute(sessionMark: false);
+    }
+    await updateGameSessionUsecase.execute(
+      status: status,
+    );
     emit(state.copyWith(
-      status: SessionStatus.running,
+      status: status,
     ));
-    await updateParameters();
   }
 }

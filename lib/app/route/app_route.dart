@@ -35,9 +35,8 @@ class AppRoute {
         child: BlocProvider(
           create: (context) {
             return MainScreenCubit(
-              createGameSessionUseCase: serviceLocator.get(param1: GameTypeModel.active),
+              updateGameSessionUsecase: serviceLocator.get(param1: GameTypeModel.standard),
               getAvailabilityOfSessionsUseCase: serviceLocator.get(),
-              getGameParametersUseCases: serviceLocator.get(param1: GameTypeModel.standard),
             );
           },
           child: const MainScreen(),
@@ -55,9 +54,11 @@ class AppRoute {
           create: (context) {
             return GamePlayCubit(
               updateGameSessionUsecase: serviceLocator.get(param1: GameTypeModel.active),
-              getGameParametersUseCases: serviceLocator.get(param1: GameTypeModel.active),
+              getGameParametersUseCases: serviceLocator.get(param1: GameTypeModel.standard),
+              createGameSessionUseCase: serviceLocator.get(param1: GameTypeModel.active),
               getCalculatedParametersUsecase: serviceLocator.get(),
               getSessionStatusUsecase: serviceLocator.get(),
+              updateAvailabilityOfSessionsUsecase: serviceLocator.get(),
             );
           },
           child: const GamePlayScreen(),

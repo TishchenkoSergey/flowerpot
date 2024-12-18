@@ -9,29 +9,26 @@ part 'main_screen_cubit.freezed.dart';
 
 class MainScreenCubit extends Cubit<MainScreenState> {
   MainScreenCubit({
-    required this.createGameSessionUseCase,
-    required this.getGameParametersUseCases,
+    required this.updateGameSessionUsecase,
     required this.getAvailabilityOfSessionsUseCase,
   }) : super(const MainScreenState()) {
     _getAvailabilityOfContinue();
   }
 
-  final GetGameParametersUseCases getGameParametersUseCases;
-  final CreateGameSessionUseCase createGameSessionUseCase;
+  final UpdateGameSessionUsecase updateGameSessionUsecase;
   final GetAvailabilityOfSessionsUseCase getAvailabilityOfSessionsUseCase;
 
   Future<void> setNewSession() async {
-    final parameters = getGameParametersUseCases.execute();
-
-    await createGameSessionUseCase.execute(
-      parameters: parameters,
+    await updateGameSessionUsecase.execute(
       status: SessionStatus.init,
-      startGameTime: Duration.zero,
     );
   }
 
   Future<void> _getAvailabilityOfContinue() async {
     final availability = await getAvailabilityOfSessionsUseCase.execute();
+    await updateGameSessionUsecase.execute(
+      status: SessionStatus.running,
+    );
     emit(state.copyWith(continueAvailability: availability));
   }
 }

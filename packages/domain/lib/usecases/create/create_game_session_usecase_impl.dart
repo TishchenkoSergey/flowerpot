@@ -19,7 +19,6 @@ class CreateGameSessionImpl implements CreateGameSessionUseCase {
     required SessionStatus status,
     required Duration startGameTime,
   }) async {
-
     final session = await sessionRepository.setupSession(
       session: SessionModel(
         parameters: parameters,
@@ -27,6 +26,8 @@ class CreateGameSessionImpl implements CreateGameSessionUseCase {
         startGameTime: startGameTime,
       ),
     );
+
+    await sessionRepository.markActiveSession(true);
 
     return session;
   }

@@ -52,9 +52,6 @@ class DomainPackageModule extends _i526.MicroPackageModule {
     gh.factory<_i494.GetCalculatedParametersUsecase>(() =>
         _i632.GetCalculatedParametersUsecaseImpl(
             gh<_i494.SessionRepository>()));
-    gh.factory<_i224.GetAvailabilityOfSessionsUseCase>(() =>
-        _i577.GetAvailabilityOfSessionsUseCaseImpl(
-            gh<_i174.SessionRepository>()));
     gh.factory<_i679.GetSessionStatusUsecase>(
         () => _i558.GetSessionStatusUsecaseImpl(gh<_i174.SessionRepository>()));
     gh.factoryParam<_i759.UpdateGameSessionUsecase, _i907.GameTypeModel,
@@ -69,6 +66,9 @@ class DomainPackageModule extends _i526.MicroPackageModule {
           gh<_i174.GameStatusRepository>(),
           gh<_i174.GameStartTimeRepository>(),
         ));
+    gh.factory<_i224.GetAvailabilityOfSessionsUseCase>(() =>
+        _i577.GetAvailabilityOfSessionsUseCaseImpl(
+            gh<_i174.GameActivityRepository>()));
     gh.factory<_i373.GetGameStartTimeUsecase>(
         () => _i407.GetGameStartTimeUsecaseImpl(gh<_i174.SessionRepository>()));
   }

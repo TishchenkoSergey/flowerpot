@@ -9,4 +9,10 @@ abstract class GameParametersModel with _$GameParametersModel {
     required int light,
     required int fertilizer,
   }) = _GameParametersModel;
+
+  const GameParametersModel._();
+
+  bool isParameterInRange(int value) => value > 0 && value < 100;
+
+  bool allInRange() => isParameterInRange(water) && isParameterInRange(light) && isParameterInRange(fertilizer);
 }

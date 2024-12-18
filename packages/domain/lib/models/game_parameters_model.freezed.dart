@@ -119,9 +119,10 @@ class __$$GameParametersModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GameParametersModelImpl implements _GameParametersModel {
+class _$GameParametersModelImpl extends _GameParametersModel {
   const _$GameParametersModelImpl(
-      {required this.water, required this.light, required this.fertilizer});
+      {required this.water, required this.light, required this.fertilizer})
+      : super._();
 
   @override
   final int water;
@@ -159,11 +160,12 @@ class _$GameParametersModelImpl implements _GameParametersModel {
           this, _$identity);
 }
 
-abstract class _GameParametersModel implements GameParametersModel {
+abstract class _GameParametersModel extends GameParametersModel {
   const factory _GameParametersModel(
       {required final int water,
       required final int light,
       required final int fertilizer}) = _$GameParametersModelImpl;
+  const _GameParametersModel._() : super._();
 
   @override
   int get water;

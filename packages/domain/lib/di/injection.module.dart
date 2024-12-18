@@ -28,6 +28,10 @@ import 'package:domain/usecases/get/get_game_start_time_usecase_impl.dart'
 import 'package:domain/usecases/get/get_session_status_usecase.dart' as _i679;
 import 'package:domain/usecases/get/get_session_status_usecase_impl.dart'
     as _i558;
+import 'package:domain/usecases/update/update_availability_of_sessions_usecase.dart'
+    as _i1060;
+import 'package:domain/usecases/update/update_availability_of_sessions_usecase_impl.dart'
+    as _i1036;
 import 'package:domain/usecases/update/update_game_session_usecase.dart'
     as _i759;
 import 'package:domain/usecases/update/update_game_session_usecase_impl.dart'
@@ -52,6 +56,9 @@ class DomainPackageModule extends _i526.MicroPackageModule {
     gh.factory<_i494.GetCalculatedParametersUsecase>(() =>
         _i632.GetCalculatedParametersUsecaseImpl(
             gh<_i494.SessionRepository>()));
+    gh.factory<_i1060.UpdateAvailabilityOfSessionsUsecase>(() =>
+        _i1036.UpdateAvailabilityOfSessionsUsecaseImpl(
+            gh<_i174.GameActivityRepository>()));
     gh.factory<_i679.GetSessionStatusUsecase>(
         () => _i558.GetSessionStatusUsecaseImpl(gh<_i174.SessionRepository>()));
     gh.factoryParam<_i759.UpdateGameSessionUsecase, _i907.GameTypeModel,

@@ -4,6 +4,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:domain/domain.dart';
 
+import '../../../utils/utils.dart';
+
 part 'game_play_state.dart';
 
 part 'game_play_cubit.freezed.dart';
@@ -28,8 +30,9 @@ class GamePlayCubit extends Cubit<GamePlayState> {
   final UpdateAvailabilityOfSessionsUsecase updateAvailabilityOfSessionsUsecase;
 
   Future<void> _init() async {
+    _countdownTimer.initialDuration = const Duration(days: 1);
     await _setupActualSession();
-    await _updateParameters();
+    await _start();
   }
 
   Future<void> setupGame() async {
@@ -47,42 +50,20 @@ class GamePlayCubit extends Cubit<GamePlayState> {
       startGameTime: duration,
     );
     await _setNewStatus(SessionStatus.running);
-    await _updateParameters();
+    await _start();
   }
 
   Future<void> _setupActualSession() async {
-    final status = await getSessionStatusUsecase.execute();
-    final parameters = status == SessionStatus.running
-        ? await getCalculatedParametersUsecase.execute()
-        : getGameParametersUseCases.execute();
+    final parameters = await getCalculatedParametersUsecase.execute();
     if (parameters.allInRange()) {
-      getDeviated(parameters);
+      final status = await getSessionStatusUsecase.execute();
+      _getDeviated(parameters);
       emit(state.copyWith(
         parameters: parameters,
         status: status,
       ));
     } else {
       await _setNewStatus(SessionStatus.complete);
-    }
-  }
-
-  Future<void> _updateParameters() async {
-    if (state.status == SessionStatus.running) {
-      Timer.periodic(
-        const Duration(seconds: 1),
-        (Timer timer) async {
-          final parameters = await getCalculatedParametersUsecase.execute();
-          if (parameters.allInRange()) {
-            getDeviated(parameters);
-            emit(state.copyWith(
-              parameters: parameters,
-            ));
-          } else {
-            timer.cancel();
-            await _setNewStatus(SessionStatus.complete);
-          }
-        },
-      );
     }
   }
 
@@ -98,7 +79,7 @@ class GamePlayCubit extends Cubit<GamePlayState> {
     ));
   }
 
-  void getDeviated(GameParametersModel parameters) {
+  void _getDeviated(GameParametersModel parameters) {
     final maxDeviation = parameters.getMaxDeviation();
 
     if (maxDeviation <= 15) {
@@ -110,5 +91,36 @@ class GamePlayCubit extends Cubit<GamePlayState> {
     } else {
       emit(state.copyWith(backgroundStatus: BackgroundStatus.rotten));
     }
+  }
+
+  late final CountdownTimerUtil _countdownTimer = CountdownTimerUtil(
+    onTick: _updateRemainingTime,
+    onComplete: _onTimeEnd,
+  );
+
+  Future<void> _updateRemainingTime(Duration duration) async {
+    final parameters = await getCalculatedParametersUsecase.execute();
+    if (parameters.allInRange()) {
+      _getDeviated(parameters);
+      //TODO: stop emit when switching to another page
+      emit(state.copyWith(
+        parameters: parameters,
+      ));
+    } else {
+      await _onTimeEnd();
+    }
+  }
+
+  Future<void> _onTimeEnd() async {
+    await _setNewStatus(SessionStatus.complete);
+    await _finished();
+  }
+
+  Future<void> _start() async {
+    _countdownTimer.start();
+  }
+
+  Future<void> _finished() async {
+    _countdownTimer.stop();
   }
 }

@@ -27,41 +27,43 @@ class MainScreen extends StatelessWidget {
         ),
         child: BlocBuilder<MainScreenCubit, MainScreenState>(
           builder: (context, state) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  context.l10n.projectTitle,
-                  style: textTheme.labelLarge?.copyWith(
-                    fontSize: 36,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 32),
-                  child: Text(
-                    context.l10n.feature_main_text_description,
-                    textAlign: TextAlign.center,
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    context.l10n.projectTitle,
                     style: textTheme.labelLarge?.copyWith(
-                      fontSize: 24,
+                      fontSize: 36,
                     ),
                   ),
-                ),
-                const SizedBox(height: 100),
-                CustomButton(
-                  title: context.l10n.feature_welcome_button_new_game,
-                  onPressed: () => {
-                    context.read<MainScreenCubit>().setNewSession(),
-                    context.goNamed(Routes.gamePlay.name),
-                  },
-                ),
-                const SizedBox(height: 20),
-                if (state.continueAvailability)
-                  CustomButton(
-                    title: context.l10n.feature_welcome_button_continue,
-                    onPressed: () => context.goNamed(Routes.gamePlay.name),
+                  const SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 32),
+                    child: Text(
+                      context.l10n.feature_main_text_description,
+                      textAlign: TextAlign.center,
+                      style: textTheme.labelLarge?.copyWith(
+                        fontSize: 24,
+                      ),
+                    ),
                   ),
-              ],
+                  const SizedBox(height: 100),
+                  CustomButton(
+                    title: context.l10n.feature_welcome_button_new_game,
+                    onPressed: () => {
+                      context.read<MainScreenCubit>().setNewSession(),
+                      context.goNamed(Routes.gamePlay.name),
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  if (state.continueAvailability)
+                    CustomButton(
+                      title: context.l10n.feature_welcome_button_continue,
+                      onPressed: () => context.goNamed(Routes.gamePlay.name),
+                    ),
+                ],
+              ),
             );
           },
         ),

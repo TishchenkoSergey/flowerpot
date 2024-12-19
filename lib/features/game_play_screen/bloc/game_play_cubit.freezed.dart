@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$GamePlayState {
   SessionStatus get status => throw _privateConstructorUsedError;
+  BackgroundStatus get backgroundStatus => throw _privateConstructorUsedError;
   GameParametersModel? get parameters => throw _privateConstructorUsedError;
   Object? get error => throw _privateConstructorUsedError;
 
@@ -34,7 +35,10 @@ abstract class $GamePlayStateCopyWith<$Res> {
       _$GamePlayStateCopyWithImpl<$Res, GamePlayState>;
   @useResult
   $Res call(
-      {SessionStatus status, GameParametersModel? parameters, Object? error});
+      {SessionStatus status,
+      BackgroundStatus backgroundStatus,
+      GameParametersModel? parameters,
+      Object? error});
 
   $GameParametersModelCopyWith<$Res>? get parameters;
 }
@@ -55,6 +59,7 @@ class _$GamePlayStateCopyWithImpl<$Res, $Val extends GamePlayState>
   @override
   $Res call({
     Object? status = null,
+    Object? backgroundStatus = null,
     Object? parameters = freezed,
     Object? error = freezed,
   }) {
@@ -63,6 +68,10 @@ class _$GamePlayStateCopyWithImpl<$Res, $Val extends GamePlayState>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as SessionStatus,
+      backgroundStatus: null == backgroundStatus
+          ? _value.backgroundStatus
+          : backgroundStatus // ignore: cast_nullable_to_non_nullable
+              as BackgroundStatus,
       parameters: freezed == parameters
           ? _value.parameters
           : parameters // ignore: cast_nullable_to_non_nullable
@@ -95,7 +104,10 @@ abstract class _$$GamePlayStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {SessionStatus status, GameParametersModel? parameters, Object? error});
+      {SessionStatus status,
+      BackgroundStatus backgroundStatus,
+      GameParametersModel? parameters,
+      Object? error});
 
   @override
   $GameParametersModelCopyWith<$Res>? get parameters;
@@ -115,6 +127,7 @@ class __$$GamePlayStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
+    Object? backgroundStatus = null,
     Object? parameters = freezed,
     Object? error = freezed,
   }) {
@@ -123,6 +136,10 @@ class __$$GamePlayStateImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as SessionStatus,
+      backgroundStatus: null == backgroundStatus
+          ? _value.backgroundStatus
+          : backgroundStatus // ignore: cast_nullable_to_non_nullable
+              as BackgroundStatus,
       parameters: freezed == parameters
           ? _value.parameters
           : parameters // ignore: cast_nullable_to_non_nullable
@@ -136,12 +153,18 @@ class __$$GamePlayStateImplCopyWithImpl<$Res>
 
 class _$GamePlayStateImpl extends _GamePlayState {
   const _$GamePlayStateImpl(
-      {this.status = SessionStatus.init, this.parameters, this.error})
+      {this.status = SessionStatus.init,
+      this.backgroundStatus = BackgroundStatus.normal,
+      this.parameters,
+      this.error})
       : super._();
 
   @override
   @JsonKey()
   final SessionStatus status;
+  @override
+  @JsonKey()
+  final BackgroundStatus backgroundStatus;
   @override
   final GameParametersModel? parameters;
   @override
@@ -149,7 +172,7 @@ class _$GamePlayStateImpl extends _GamePlayState {
 
   @override
   String toString() {
-    return 'GamePlayState(status: $status, parameters: $parameters, error: $error)';
+    return 'GamePlayState(status: $status, backgroundStatus: $backgroundStatus, parameters: $parameters, error: $error)';
   }
 
   @override
@@ -158,14 +181,16 @@ class _$GamePlayStateImpl extends _GamePlayState {
         (other.runtimeType == runtimeType &&
             other is _$GamePlayStateImpl &&
             (identical(other.status, status) || other.status == status) &&
+            (identical(other.backgroundStatus, backgroundStatus) ||
+                other.backgroundStatus == backgroundStatus) &&
             (identical(other.parameters, parameters) ||
                 other.parameters == parameters) &&
             const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, parameters,
-      const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, status, backgroundStatus,
+      parameters, const DeepCollectionEquality().hash(error));
 
   /// Create a copy of GamePlayState
   /// with the given fields replaced by the non-null parameter values.
@@ -179,12 +204,15 @@ class _$GamePlayStateImpl extends _GamePlayState {
 abstract class _GamePlayState extends GamePlayState {
   const factory _GamePlayState(
       {final SessionStatus status,
+      final BackgroundStatus backgroundStatus,
       final GameParametersModel? parameters,
       final Object? error}) = _$GamePlayStateImpl;
   const _GamePlayState._() : super._();
 
   @override
   SessionStatus get status;
+  @override
+  BackgroundStatus get backgroundStatus;
   @override
   GameParametersModel? get parameters;
   @override

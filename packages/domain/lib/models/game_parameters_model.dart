@@ -15,4 +15,10 @@ abstract class GameParametersModel with _$GameParametersModel {
   bool isParameterInRange(int value) => value > 0 && value < 100;
 
   bool allInRange() => isParameterInRange(water) && isParameterInRange(light) && isParameterInRange(fertilizer);
+
+  int getMaxDeviation() {
+    final parameters = [water, light, fertilizer];
+    final deviations = parameters.map((value) => (value - 50).abs()).toList();
+    return deviations.reduce((a, b) => a > b ? a : b);
+  }
 }

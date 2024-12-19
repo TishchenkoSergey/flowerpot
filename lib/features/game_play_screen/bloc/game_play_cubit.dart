@@ -56,6 +56,7 @@ class GamePlayCubit extends Cubit<GamePlayState> {
         ? await getCalculatedParametersUsecase.execute()
         : getGameParametersUseCases.execute();
     if (parameters.allInRange()) {
+      getDeviated(parameters);
       emit(state.copyWith(
         parameters: parameters,
         status: status,
@@ -69,9 +70,10 @@ class GamePlayCubit extends Cubit<GamePlayState> {
     if (state.status == SessionStatus.running) {
       Timer.periodic(
         const Duration(seconds: 1),
-            (Timer timer) async {
+        (Timer timer) async {
           final parameters = await getCalculatedParametersUsecase.execute();
           if (parameters.allInRange()) {
+            getDeviated(parameters);
             emit(state.copyWith(
               parameters: parameters,
             ));
@@ -94,5 +96,19 @@ class GamePlayCubit extends Cubit<GamePlayState> {
     emit(state.copyWith(
       status: status,
     ));
+  }
+
+  void getDeviated(GameParametersModel parameters) {
+    final maxDeviation = parameters.getMaxDeviation();
+
+    if (maxDeviation <= 15) {
+      emit(state.copyWith(backgroundStatus: BackgroundStatus.normal));
+    } else if (maxDeviation <= 30) {
+      emit(state.copyWith(backgroundStatus: BackgroundStatus.flabby));
+    } else if (maxDeviation <= 40) {
+      emit(state.copyWith(backgroundStatus: BackgroundStatus.dry));
+    } else {
+      emit(state.copyWith(backgroundStatus: BackgroundStatus.rotten));
+    }
   }
 }

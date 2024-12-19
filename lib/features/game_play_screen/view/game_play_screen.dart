@@ -16,83 +16,99 @@ class GamePlayScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final backgroundDecoration = Assets.illustrations.normal.provider();
+    return BlocBuilder<GamePlayCubit, GamePlayState>(
+      builder: (context, state) {
+        final  backgroundDecoration = _getBackgroundIllustration(context, state);
+        return Scaffold(
+          body: Container(
+            constraints: const BoxConstraints.expand(),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: backgroundDecoration,
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: SafeArea(
+              child: Builder(
+                builder: (context) {
+                  if (state.status == SessionStatus.init) {
+                    return InfoDialog(
+                      title: context.l10n.feature_game_play_new_game_title,
+                      description: context.l10n.feature_game_play_new_game_description,
+                      onPressedNegative: () => context.goNamed(Routes.mainScreen.name),
+                      onPressedPositive: context.read<GamePlayCubit>().setupGame,
+                      positiveTitleButton: context.l10n.feature_game_play_new_game_positive_button,
+                      negativeTitleButton: context.l10n.feature_game_play_new_game_negative_button,
+                    );
+                  }
 
-    return Scaffold(
-      body: Container(
-        constraints: const BoxConstraints.expand(),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: backgroundDecoration,
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: SafeArea(
-          child: BlocBuilder<GamePlayCubit, GamePlayState>(
-            builder: (context, state) {
-              if (state.status == SessionStatus.init) {
-                return InfoDialog(
-                  title: context.l10n.feature_game_play_new_game_title,
-                  description: context.l10n.feature_game_play_new_game_description,
-                  onPressedNegative: () => context.goNamed(Routes.mainScreen.name),
-                  onPressedPositive: context.read<GamePlayCubit>().setupGame,
-                  positiveTitleButton: context.l10n.feature_game_play_new_game_positive_button,
-                  negativeTitleButton: context.l10n.feature_game_play_new_game_negative_button,
-                );
-              }
+                  if (state.status == SessionStatus.complete) {
+                    return InfoDialog(
+                      title: context.l10n.feature_game_play_end_game_title,
+                      description: context.l10n.feature_game_play_end_game_description,
+                      onPressedPositive: () => context.goNamed(Routes.mainScreen.name),
+                      positiveTitleButton: context.l10n.feature_game_play_end_game_positive_button,
+                    );
+                  }
 
-              if (state.status == SessionStatus.complete) {
-                return InfoDialog(
-                  title: context.l10n.feature_game_play_end_game_title,
-                  description: context.l10n.feature_game_play_end_game_description,
-                  onPressedPositive: () => context.goNamed(Routes.mainScreen.name),
-                  positiveTitleButton: context.l10n.feature_game_play_end_game_positive_button,
-                );
-              }
-
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GradientStatus(
-                        image: Assets.icons.water.provider(),
-                        value: state.parameters!.water,
+                      Column(
+                        children: [
+                          GradientStatus(
+                            image: Assets.icons.water.provider(),
+                            value: state.parameters!.water,
+                          ),
+                          const SizedBox(height: 8),
+                          GradientStatus(
+                            image: Assets.icons.light.provider(),
+                            value: state.parameters!.light,
+                          ),
+                          const SizedBox(height: 8),
+                          GradientStatus(
+                            image: Assets.icons.fertilizer.provider(),
+                            value: state.parameters!.fertilizer,
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 8),
-                      GradientStatus(
-                        image: Assets.icons.light.provider(),
-                        value: state.parameters!.light,
-                      ),
-                      const SizedBox(height: 8),
-                      GradientStatus(
-                        image: Assets.icons.fertilizer.provider(),
-                        value: state.parameters!.fertilizer,
+                      Padding(
+                        padding: const EdgeInsets.all(24),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CircleButton(
+                              child: const Icon(Icons.event_note_rounded),
+                              onPressed: () => context.goNamed(Routes.mainScreen.name),
+                            ),
+                            CircleButton(
+                              child: const Icon(Icons.shopping_basket_outlined),
+                              onPressed: () => context.goNamed(Routes.interactions.name),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(24),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        CircleButton(
-                          child: const Icon(Icons.event_note_rounded),
-                          onPressed: () => context.goNamed(Routes.mainScreen.name),
-                        ),
-                        CircleButton(
-                          child: const Icon(Icons.shopping_basket_outlined),
-                          onPressed: () => context.goNamed(Routes.interactions.name),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              );
-            },
+                  );
+                },
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
+  }
+
+  ImageProvider _getBackgroundIllustration(BuildContext context, GamePlayState state) {
+    switch (state.backgroundStatus) {
+      case BackgroundStatus.normal:
+        return Assets.illustrations.normal.provider();
+      case BackgroundStatus.flabby:
+        return Assets.illustrations.flabby.provider();
+      case BackgroundStatus.dry:
+        return Assets.illustrations.dry.provider();
+      case BackgroundStatus.rotten:
+        return Assets.illustrations.rotten.provider();
+    }
   }
 }
